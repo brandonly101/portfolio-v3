@@ -45,6 +45,11 @@ main {
     background-color: white;
 }
 
+canvas {
+    position: absolute;
+    // z-index: -1;
+}
+
 a {
     transition: opacity 0.1s linear;
     transition: color 0.1s linear;

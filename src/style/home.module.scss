@@ -3,17 +3,18 @@
 // Work page properties.
 @import "global-vars";
 
+.landingBuffer {
+    height: 100vh;
+}
+
 .landing {
     height: 100vh;
-    background-size: cover;
-    background-blend-mode: overlay;
     color: $color-secondary;
     display: flex;
     align-items: center;
     text-align: center;
-
-    background-image: url('../assets/images/deskBlur.jpg');
-    background-color: darken($color-secondary, 90%);
+    position: absolute;
+    width: 100%;
 
     .content {
         width: 100%;
