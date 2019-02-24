@@ -1,10 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
-import { Container, Row, Col } from "reactstrap";
-import classnames from "classnames";
 
 import Layout from "../components/layout";
-import Image from "../components/image";
 import SEO from "../components/seo";
 import Work from '../components/work';
 import Projects from '../components/projects';
@@ -22,7 +19,7 @@ class Home extends React.Component {
 
     render() {
         return (
-            <div id="body">
+            <>
                 <div id="Landing" className={homeStyles.landing}>
                     <div className={homeStyles.content}>
                         <div className={homeStyles.image}>
@@ -46,7 +43,7 @@ class Home extends React.Component {
                 </div>
                 <Work/>
                 <Projects/>
-            </div>
+            </>
         );
     }
 }
