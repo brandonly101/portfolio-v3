@@ -38,6 +38,11 @@ body {
     font-family: 'Webly', 'Arial';
     z-index: 0;
     // background-color: #777777;
+    background-color: $color-primary;
+}
+
+main {
+    background-color: white;
 }
 
 a {

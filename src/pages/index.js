@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+import * as Scroll from "react-scroll";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -31,12 +32,8 @@ class Home extends React.Component {
                         </div>
                         <div className={homeStyles.links}>
                             <ul>
-                                {/* <li key={0}><Scroll.Link href="" to="work" smooth={true} duration={350} offset={-100}>Work</Scroll.Link></li>, */}
-                                <li key={0}>Work</li>
-                                {/* <li key={1}><Scroll.Link href="" to="work-skills" smooth={true} duration={350} offset={-100}>Skills</Scroll.Link></li>, */}
-                                <li key={1}>Skills</li>
-                                <li key={2}><Link to="/projects">Projects</Link></li>
-                                <li key={3}><a href="https://www.dropbox.com/s/gr6tw5nf7dvrwg1/LyBrandonResume.pdf?dl=0" target="_blank">Resume</a></li>
+                                <li key={0}><Scroll.Link href="" to="work" smooth={true} duration={350} offset={-100}>Work</Scroll.Link></li>
+                                <li key={1}><Scroll.Link href="" to="projects" smooth={true} duration={350} offset={-100}>Projects</Scroll.Link></li>
                             </ul>
                         </div>
                     </div>
@@ -51,8 +48,7 @@ class Home extends React.Component {
 const IndexPage = () => (
     <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-        <Home />
-        <Link to="/page-2/">Go to page 2</Link>
+        <Home/>
     </Layout>
 );
 

@@ -17,7 +17,7 @@ export default class Work extends React.Component {
                     <div className={workStyles.ssc}><img src={WorkData[i].img}/></div> :
                     <img src={require("../assets/images/work/" + WorkData[i].img)}/>;
             var colImg = (
-                <Col xs={12} md={6}>
+                <Col xs={12} md={4}>
                     <div className={workStyles.img}>
                         {img}
                     </div>
@@ -40,7 +40,7 @@ export default class Work extends React.Component {
                 );
             }
             var colDesc = (
-                <Col xs={12} md={6}>
+                <Col xs={12} md={8}>
                     <div className={workStyles.title}>{WorkData[i].title}</div>
                     <div className={workStyles.subtitle}>{WorkData[i].company} <span>{WorkData[i].dateStart} - {WorkData[i].dateEnd}</span></div>
                     <div className={workStyles.description}>

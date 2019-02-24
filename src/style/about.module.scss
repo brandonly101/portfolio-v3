@@ -1,0 +1,68 @@
+// Copyright 2019 Brandon Ly all rights reserved.
+
+// About page properties.
+@import "global-vars";
+
+.aboutMiniLanding {
+    background-image: url("../assets/images/dtlaBlur.jpg");
+    filter: brightness(50%);
+    height: 140px !important;
+}
+
+.aboutDescription {
+    // padding: 0 20%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+    padding-top: 60px;
+    text-align: center;
+
+    img {
+        width: 25%;
+    }
+
+    .title {
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+
+        font-size: 3rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .paragraph {
+        padding: 40px;
+        text-align: left;
+        font-size: 1.25rem;
+    }
+}
+
+.contact {
+    padding: 20px 15%;
+    padding-bottom: 160px;
+
+    .list {
+        font-size: 1.25rem;
+
+        .title {
+            padding-top: 3rem;
+            padding-bottom: 2rem;
+
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .phone {
+            text-align: center;
+        }
+
+        .row {
+            padding-bottom: 10px;
+        }
+
+        .col {
+            text-align: center;
+        }
+    }
+}

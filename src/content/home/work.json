@@ -1,5 +1,62 @@
 [
     {
+        "shortTitle": "bsg",
+        "title": "Associate Software Engineer I",
+        "company": "Blind Squirrel Entertainment, Inc.",
+        "dateStart": "April 2017",
+        "dateEnd": "Jan 2019",
+        "description": "I worked as an associate software engineer, doing all kinds of game development programming.",
+        "descList": [
+            "Contributed to the gameplay design and engineering of Star Wars: Jedi Challenges, an augmented reality mobile game based on the Star Wars universe. Developed the game using the Unity3D game engine.",
+            "Contributed to the gameplay engineering and minor graphics engineering of an unannounced multi-platform (PS4/Xbox One/PC) first-person shooter remaster. Worked with the Unreal Engine 3 game engine.",
+            "Contributed to the gameplay design and engineering of Forklift Simulator 2019. Developed the game using the Unity3D game engine."
+        ],
+        "descListLinks": [
+            "https://www.lenovo.com/us/en/jedichallenges",
+            null,
+            "https://store.steampowered.com/app/939450/Forklift_Simulator_2019/"
+        ],
+        "skills": [
+            {
+                "shortTitle": "cplusplus",
+                "title": "C/C++"
+            },
+            {
+                "shortTitle": "csharp",
+                "title": "C#"
+            },
+            {
+                "shortTitle": "ue4",
+                "title": "Unreal Engine 3/4"
+            },
+            {
+                "shortTitle": "unity3d",
+                "title": "Unity 3D Game Engine"
+            },
+            {
+                "shortTitle": "ar",
+                "title": "Augmented Reality Game Development"
+            },
+            {
+                "shortTitle": "graphics",
+                "title": "3D Computer Graphics"
+            },
+            {
+                "shortTitle": "directx",
+                "title": "DirectX/Direct3D11 API"
+            },
+            {
+                "shortTitle": "glsl",
+                "title": "OpenGL Shading Language (GLSL)"
+            },
+            {
+                "shortTitle": "glsl",
+                "title": "High Level Shading Language (GLSL)"
+            }
+        ],
+        "img": "blindsquirrelLogo.jpg"
+    },
+    {
         "shortTitle": "workday",
         "title": "Associate Software Engineering Intern, UI/UX",
         "company": "Workday, Inc.",
@@ -48,8 +105,8 @@
         "title": "Instructional Programmer",
         "company": "UCLA Social Sciences Computing",
         "dateStart": "June 2014",
-        "dateEnd": "Present",
-        "description": "I work at UCLA Social Sciences Computing implementing features requested by professors and fixing bugs for UCLA's Common Collaborative Learning Environment (CCLE).",
+        "dateEnd": "March 2017",
+        "description": "I implemented features requested by professors and fixed bugs for UCLA's Common Collaborative Learning Environment (CCLE).",
         "descList": [
             "CCLE is a course management system web appplication used by all UCLA students and instructors to share course material, post in forums, take quizzes, and more."
         ],

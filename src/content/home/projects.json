@@ -369,8 +369,7 @@
         "dateEnd": "Present",
         "description": "My portfolio site, which is a project in and of itself. The portfolio lets me experiment not just in this website's development, but also its design.",
         "descList": [
-            "Latest iteration uses Webpack and React.js, since I wanted to learn how to use React.js.",
-            "Built on the Jekyll static site generator for easy publishing to GitHub Pages."
+            "Latest iteration uses Gatsby and React.js, since I wanted to learn how to use React.js."
         ],
         "skills": [
             {
@@ -382,12 +381,16 @@
                 "title": "JavaScript"
             },
             {
-                "shortTitle": "jekyll",
-                "title": "Jekyll Templates"
-            },
-            {
                 "shortTitle": "reactjs",
                 "title": "React.js"
+            },
+            {
+                "shortTitle": "webgl",
+                "title": "WebGL"
+            },
+            {
+                "shortTitle": "threejs",
+                "title": "Three.js"
             }
         ],
         "img": "portfolioScreen.jpg",

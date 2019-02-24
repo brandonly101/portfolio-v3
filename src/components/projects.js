@@ -170,7 +170,7 @@ export default class Projects extends React.Component {
         }
 
         return (
-            <div id="projects" className={projectsStyles.projects}>
+            <div className={projectsStyles.projects}>
                 <div className={projectsStyles.main}>
                     <Container fluid={true}>
                         <div className={projectsStyles.heading}>Projects</div>
@@ -179,6 +179,7 @@ export default class Projects extends React.Component {
                         </div>
                     </Container>
                 </div>
+                <div id="projects"/>
                 {projectsGrid}
                 <div className={projectsStyles.other}>
                     <Container fluid={true}>

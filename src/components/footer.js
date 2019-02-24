@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // Custom imports.
 import footerStyles from '../style/footer.module.scss';
 
-
 export default class Footer extends React.Component {
     render() {
         return (
