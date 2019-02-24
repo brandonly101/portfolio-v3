@@ -1,0 +1,36 @@
+// Copyright 2019 Brandon Ly all rights reserved.
+
+// Footer properties
+@import "global-vars";
+
+.footer {
+    background-color: $color-primary;
+    color: $color-secondary;
+    padding-top: 40px;
+    padding-bottom: 120px;
+
+    .copyright {
+        max-width: $screen-lg;
+        margin: 10px auto;
+        text-align: center;
+        font-size: 1.25rem;
+    }
+
+    .contact {
+        font-size: 2rem;
+        max-width: $screen-lg;
+        margin: auto;
+        text-align: center;
+        color: $color-secondary;
+
+        .contactIcon {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+
+    .resume {
+        text-align: center;
+        font-size: 1.25rem;
+    }
+}

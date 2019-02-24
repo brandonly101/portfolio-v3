@@ -1,0 +1,66 @@
+// Copyright 2019 Brandon Ly all rights reserved.
+
+// Header properties.
+@import "global-vars";
+
+.headerContainer {
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    z-index: 5;
+}
+
+.header {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: transparent;
+    color: $color-secondary;
+    transition: all 0.1s linear;
+    text-align: left;
+    z-index: 5;
+
+    .logo {
+        text-align: left;
+
+        .title {
+            $header-title-main-height: 48px;
+            $header-title-sub-height: 16px;
+
+            margin-top: (($header-height - ($header-title-main-height + $header-title-sub-height)) / 2);
+            margin-bottom: (($header-height - ($header-title-main-height + $header-title-sub-height)) / 2);
+
+            .main {
+                line-height: $header-title-main-height;
+                font-size: 36px;
+                font-weight: 400;
+            }
+
+            .sub {
+                line-height: $header-title-sub-height;
+                font-size: 12px;
+                font-weight: 300;
+            }
+        }
+    }
+
+    .menu {
+        line-height: $header-height;
+        font-weight: 700;
+        text-align: right;
+
+        .elem {
+            height: 100%;
+            padding: 0 10px;
+            font-size: 1.25rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}
+
+.header-scrolled {
+    background-color: $color-secondary;
+    color: $color-primary;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}

@@ -1,0 +1,21 @@
+// Copyright Brandon Ly 2019 all rights reserved.
+
+// Grid system columns.
+$col-count: 12;
+
+// Screen Sizes.
+$screen-xs: 480px;
+$screen-sm: 720px;
+$screen-md: 1024px;
+$screen-lg: 1280px;
+
+// Header settings
+$header-height: 100px;
+
+// Color scheme 1
+$color-primary: rgb(18, 36, 56);
+$color-secondary: #FFF;
+$color-tertiary: lighten($color-primary, 35%);
+
+// Misc.
+$transition-speed: 0.15s;

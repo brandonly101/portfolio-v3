@@ -1,0 +1,58 @@
+/**
+ *
+ * Copyright 2019 Brandon Ly all rights reserved.
+ *
+ * SCSS Style Sheet to my home portfolio website.
+ *
+ **/
+
+// Custom Imports.
+@import "global-vars";
+
+@font-face {
+    font-family: "Webly";
+    src: url("../assets/fonts/weblysleekui/weblysleekuil.ttf");
+    font-weight: 300;
+}
+@font-face {
+    font-family: "Webly";
+    src: url("../assets/fonts/weblysleekui/weblysleekuisl.ttf");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Webly";
+    src: url("../assets/fonts/weblysleekui/weblysleekuisb.ttf");
+    font-weight: 700;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    color: $color-primary;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+body {
+    margin: 0;
+    font-family: 'Webly', 'Arial';
+    z-index: 0;
+    background-color: #777777;
+}
+
+a {
+    transition: opacity 0.1s linear;
+    transition: color 0.1s linear;
+    color: inherit;
+    opacity: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: $color-tertiary;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
