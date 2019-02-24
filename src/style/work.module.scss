@@ -1,0 +1,113 @@
+// Copyright Brandon Ly 2017 all rights reserved.
+
+// Work page properties.
+@import "global-vars";
+
+.work {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    max-width: 1000px;
+
+    .heading {
+        width: 100%;
+        border-bottom: 2px solid darken($color-secondary, 6.25%);
+
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+        margin-bottom: 40px;
+
+        font-size: 3rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .job {
+        border-bottom: 2px solid darken($color-secondary, 6.25%);
+
+        padding-bottom: 40px;
+        margin-bottom: 40px;
+    }
+
+    .img {
+        padding: 10%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+
+        .ssc {
+            background-color: rgb(37, 83, 135);
+            text-align: center;
+            padding: 20px;
+        }
+
+    }
+
+    .title {
+        padding-bottom: 5px;
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+
+    .subtitle {
+        padding-bottom: 15px;
+        span {
+            float: right;
+            color: darken(#FFF, 30%);
+        }
+
+        span::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    }
+
+    .description {
+        padding-bottom: 15px;
+
+        ul {
+            padding-left: 20px;
+            padding-top: 15px;
+            margin: 0;
+        }
+    }
+}
+
+.work-skills-list {
+    padding-bottom: 160px;
+    text-align: center;
+
+    .title {
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+
+        font-size: 3rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .subtitle {
+        width: 100%;
+        @media (min-width: $screen-sm) {
+            width: $screen-sm;
+        }
+
+        margin: 0 auto;
+        padding-bottom: 40px;
+    }
+
+    .row {
+        font-size: 1.25rem;
+        padding-bottom: 10px;
+    }
+
+    .col-left {
+        text-align: right;
+    }
+
+    .col-right {
+        text-align: left;
+    }
+}

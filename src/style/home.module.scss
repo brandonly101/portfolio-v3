@@ -1,0 +1,375 @@
+// Copyright Brandon Ly 2017 all rights reserved.
+
+// Work page properties.
+@import "global-vars";
+
+.landing {
+    height: 100vh;
+    background-size: cover;
+    background-blend-mode: overlay;
+    color: $color-secondary;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    background-image: url('../assets/images/deskBlur.jpg');
+    background-color: darken($color-secondary, 90%);
+
+    .content {
+        width: 100%;
+        @media (min-width: $screen-sm) {
+            width: $screen-sm;
+        }
+        height: initial;
+        box-sizing: border-box;
+        margin: 0 auto;
+
+        .paragraph {
+            padding: 20px;
+            font-size: 1.5rem;
+        }
+    }
+
+    .image {
+        margin: auto;
+        width: 120px;
+    }
+
+    .links {
+        padding-top: 1rem;
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-align: center;
+
+        ul {
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+        }
+
+        li:not(:first-child)::before {
+            content: '\00B7';
+            display: inline-block;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
+}
+
+.body-content {
+    // padding: 0 10%;
+}
+
+.work {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    max-width: 1000px;
+
+    .heading {
+        width: 100%;
+        border-bottom: 2px solid darken($color-secondary, 6.25%);
+
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+        margin-bottom: 40px;
+
+        font-size: 3rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .job {
+        border-bottom: 2px solid darken($color-secondary, 6.25%);
+
+        padding-bottom: 40px;
+        margin-bottom: 40px;
+    }
+
+    .img {
+        padding: 10%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+
+        .ssc {
+            background-color: rgb(37, 83, 135);
+            text-align: center;
+            padding: 20px;
+        }
+
+    }
+
+    .title {
+        padding-bottom: 5px;
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+
+    .subtitle {
+        padding-bottom: 15px;
+        span {
+            float: right;
+            color: darken(#FFF, 30%);
+        }
+
+        span::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    }
+
+    .description {
+        padding-bottom: 15px;
+
+        ul {
+            padding-left: 20px;
+            padding-top: 15px;
+            margin: 0;
+        }
+    }
+}
+
+.work-skills-list {
+    padding-bottom: 160px;
+    text-align: center;
+
+    .title {
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+
+        font-size: 3rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .subtitle {
+        width: 100%;
+        @media (min-width: $screen-sm) {
+            width: $screen-sm;
+        }
+
+        margin: 0 auto;
+        padding-bottom: 40px;
+    }
+
+    .row {
+        font-size: 1.25rem;
+        padding-bottom: 10px;
+    }
+
+    .col-left {
+        text-align: right;
+    }
+
+    .col-right {
+        text-align: left;
+    }
+}
+
+// Projects grid properties.
+.projects {
+    width: 100%;
+
+    .projects-heading {
+        margin-bottom: 40px;
+        border-bottom: 2px solid darken($color-secondary, 6.25%);
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+
+        font-size: 3rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .projects-other {
+        border-top: 1px solid rgba(0,0,0,.1);
+        position: relative;
+
+        width: 100%;
+        @media (min-width: $screen-sm) {
+            width: $screen-sm;
+        }
+
+        margin: 0 auto;
+        padding-bottom: 40px;
+
+        z-index: 1;
+
+        .projects-other-project {
+            margin-bottom: 40px;
+            border-bottom: 2px solid darken($color-secondary, 6.25%);
+            padding-bottom: 40px;
+        }
+    }
+}
+
+.projects-grid {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.projects-box {
+    position: relative;
+    flex: 0 1 auto;
+    z-index: 1;
+    color: $color-secondary;
+    width: 100%;
+    height: calc(100vw * 10 / 16 + 0px);
+    @media (min-width: ($screen-sm + 1)) {
+        width: calc(100% / 3);
+        height: calc(100vw * 10 / 16 * 1 / 3 + 0px);
+    }
+}
+
+.projects-box-selected {
+    box-shadow: 0 0 25px 5px #202020;
+    z-index: 2;
+}
+
+.projects-img {
+    display: block;
+    background-size: cover;
+    background-color: #FFF;
+    background-blend-mode: multiply;
+    transition: background-color 0.1s linear;
+    cursor: pointer;
+
+    .projects-img-info {
+        opacity: 0;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        text-align: center;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.1s linear;
+
+        .title {
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .subtitle {
+            font-weight: 300;
+        }
+    }
+}
+
+
+.projects-img:hover {
+    background-color: lighten(#000, 30%);
+
+    .projects-img-info {
+        opacity: 1;
+    }
+}
+
+.projects-description {
+    max-height: 0;
+    transition: max-height 0.2s linear;
+
+    background-color: darken($color-secondary, 10%);
+
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,.1);
+}
+
+.projects-description.projects-description-active {
+    max-height: 860px;
+}
+
+.project-img {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+
+    img, iframe {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}
+
+.project-description {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.project-info {
+    flex: 1;
+
+    .title {
+        padding-bottom: 5px;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .subtitle {
+        padding-bottom: 15px;
+        span {
+            float: right;
+            color: darken($color-secondary, 30%);
+        }
+
+        span::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    }
+
+    .description {
+        padding-bottom: 15px;
+
+        ul {
+            padding-left: 20px;
+            padding-top: 15px;
+            margin: 0;
+        }
+
+        .live-site {
+            display: inline-block;
+            padding: 0 4px;
+            border-radius: 2px;
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: bold;
+            background-color: $color-tertiary;
+            color: $color-secondary;
+        }
+
+        .src {
+            display: inline-block;
+            padding: 0 4px;
+            border-radius: 2px;
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: bold;
+            background-color: lighten($color-primary, 20%);
+            color: $color-secondary;
+        }
+    }
+}
+
+.project-description-content {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    border-bottom: 2px solid darken($color-secondary, 16.25%);
+    margin-bottom: 80px;
+}

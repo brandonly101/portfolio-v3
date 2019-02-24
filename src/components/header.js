@@ -1,6 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
+
 import headerStyles from "../style/header.module.scss";
 
 export default class Header extends React.Component {
@@ -27,11 +28,14 @@ export default class Header extends React.Component {
     }
 
     render() {
-        // var headerClass = classnames({ 'header': true, 'header-scrolled': this.state.isScrolled });
+        var headerClass = [
+            headerStyles.header,
+            this.state.isScrolled ? headerStyles.headerScrolled : ""
+        ].join(' ');
 
         return (
             <div className={headerStyles.headerContainer}>
-                <div className={headerStyles.header}>
+                <div className={headerClass}>
                     <Container>
                         <Row>
                             <Col xs={12} md={5} className={headerStyles.logo}>

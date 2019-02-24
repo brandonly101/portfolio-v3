@@ -1,0 +1,229 @@
+// Copyright 2019 Brandon Ly all rights reserved.
+
+// Projects page landing page.
+@import "global-vars";
+
+// Projects grid properties.
+.projects {
+    width: 100%;
+    // max-width: 1000px;
+    // margin-left: auto;
+    // margin-right: auto;
+
+    .heading {
+        margin-bottom: 40px;
+        border-bottom: 2px solid darken($color-secondary, 6.25%);
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+
+        font-size: 3rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .headingDesc {
+        text-align: center;
+        font-size: 1.15rem;
+    }
+
+    .main {
+        position: relative;
+
+        width: 100%;
+        @media (min-width: $screen-sm) {
+            width: $screen-sm;
+        }
+
+        margin: 0 auto;
+        padding-bottom: 40px;
+
+        z-index: 1;
+    }
+
+    .other {
+        border-top: 1px solid rgba(0,0,0,.1);
+        position: relative;
+
+        width: 100%;
+        @media (min-width: $screen-sm) {
+            width: $screen-sm;
+        }
+
+        margin: 0 auto;
+        padding-bottom: 40px;
+
+        z-index: 1;
+
+        .otherProject {
+            margin-bottom: 40px;
+            border-bottom: 2px solid darken($color-secondary, 6.25%);
+            padding-bottom: 40px;
+        }
+    }
+
+    .grid {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .box {
+        position: relative;
+        flex: 0 1 auto;
+        z-index: 1;
+        color: $color-secondary;
+        width: 100%;
+        height: calc(100vw * 10 / 16 + 0px);
+        @media (min-width: ($screen-sm + 1)) {
+            width: calc(100% / 3);
+            height: calc(100vw * 10 / 16 * 1 / 3 + 0px);
+        }
+    }
+
+    .boxSelected {
+        box-shadow: 0 0 25px 5px #202020;
+        z-index: 2;
+    }
+
+    .img {
+        display: block;
+        background-size: cover;
+        background-color: #FFF;
+        background-blend-mode: multiply;
+        transition: background-color 0.1s linear;
+        cursor: pointer;
+
+        .info {
+            opacity: 0;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.1s linear;
+
+            .title {
+                font-weight: 700;
+                font-size: 1.25rem;
+            }
+
+            .subtitle {
+                font-weight: 300;
+            }
+        }
+    }
+
+    .img:hover {
+        background-color: lighten(#000, 30%);
+
+        .info {
+            opacity: 1;
+        }
+    }
+
+    .dropdown {
+        max-height: 0;
+        transition: max-height 0.2s linear;
+
+        background-color: darken($color-secondary, 10%);
+
+        overflow: hidden;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,.1);
+    }
+
+    .dropdownActive {
+        max-height: 860px;
+    }
+}
+
+.project {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    border-bottom: 2px solid darken($color-secondary, 16.25%);
+    margin-bottom: 80px;
+
+    .img {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+
+        img, iframe {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+
+.contentInfo {
+    flex: 1;
+
+    .title {
+        padding-bottom: 5px;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .subtitle {
+        padding-bottom: 15px;
+        span {
+            float: right;
+            color: darken($color-secondary, 30%);
+        }
+
+        span::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    }
+
+    .description {
+        padding-bottom: 15px;
+
+        ul {
+            padding-left: 20px;
+            padding-top: 15px;
+            margin: 0;
+        }
+
+        .liveSite {
+            display: inline-block;
+            padding: 0 4px;
+            border-radius: 2px;
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: bold;
+            background-color: $color-tertiary;
+            color: $color-secondary;
+        }
+
+        .src {
+            display: inline-block;
+            padding: 0 4px;
+            border-radius: 2px;
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: bold;
+            background-color: lighten($color-primary, 20%);
+            color: $color-secondary;
+        }
+    }
+}

@@ -1,0 +1,80 @@
+[
+    {
+        "shortTitle": "workday",
+        "title": "Associate Software Engineering Intern, UI/UX",
+        "company": "Workday, Inc.",
+        "dateStart": "June 2016",
+        "dateEnd": "Sept 2016",
+        "description": "I interned at Workday where I designed and implemented a 3D data visualization in the main Workday web application.",
+        "descList": [
+            "3D data visualization maps company office data to their physical location on an interactive 3D globe.",
+            "Experimental feature with plans by the UI/UX team to refine for production for enterprise Workday users.",
+            "Interacted with senior developers and designers and participated in an Agile workflow to accomplish my work."
+        ],
+        "skills": [
+            {
+                "shortTitle": "java",
+                "title": "Java"
+            },
+            {
+                "shortTitle": "gwt",
+                "title": "GWT"
+            },
+            {
+                "shortTitle": "parallax3d",
+                "title": "Parallax 3D"
+            },
+            {
+                "shortTitle": "javascript",
+                "title": "JavaScript"
+            },
+            {
+                "shortTitle": "webgl",
+                "title": "WebGL"
+            },
+            {
+                "shortTitle": "threejs",
+                "title": "Three.js"
+            },
+            {
+                "shortTitle": "glsl",
+                "title": "OpenGL Shading Language (GLSL)"
+            }
+        ],
+        "img": "workdayLogo.png"
+    },
+    {
+        "shortTitle": "ssc",
+        "title": "Instructional Programmer",
+        "company": "UCLA Social Sciences Computing",
+        "dateStart": "June 2014",
+        "dateEnd": "Present",
+        "description": "I work at UCLA Social Sciences Computing implementing features requested by professors and fixing bugs for UCLA's Common Collaborative Learning Environment (CCLE).",
+        "descList": [
+            "CCLE is a course management system web appplication used by all UCLA students and instructors to share course material, post in forums, take quizzes, and more."
+        ],
+        "skills": [
+            {
+                "shortTitle": "php",
+                "title": "PHP"
+            },
+            {
+                "shortTitle": "mysql",
+                "title": "MySQL"
+            },
+            {
+                "shortTitle": "javascript",
+                "title": "JavaScript"
+            },
+            {
+                "shortTitle": "htmlcss",
+                "title": "HTML & CSS"
+            },
+            {
+                "shortTitle": "moodle",
+                "title": "Moodle Framework"
+            }
+        ],
+        "img": "https://computing.sscnet.ucla.edu/wp-content/uploads/2013/04/ssc-logo-all-white-1.png"
+    }
+]

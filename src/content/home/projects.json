@@ -1,0 +1,400 @@
+[
+    {
+        "shortTitle": "pbr",
+        "title": "WebGL Physically-based Renderer",
+        "projectType": "3D Computer Graphics Project",
+        "src": "https://github.com/brandonly101/webgl-physically-based-rendering",
+        "dateStart": "August 2015",
+        "dateEnd": "February 2019",
+        "description": "A 3D model physically-based renderer with adjustable material parameters for color, roughness, and metallicness.",
+        "descList": [
+            "Features fully physically-based shading based on microfacet theory.",
+            "Also features specular image-based lighting and diffuse irradiance.",
+            "Implemented a 3D matrix math library, OBJ 3D model reader, a mini-material system, and normal mapping."
+        ],
+        "skills": [
+            {
+                "shortTitle": "graphics",
+                "title": "3D Computer Graphics"
+            },
+            {
+                "shortTitle": "javascript",
+                "title": "JavaScript"
+            },
+            {
+                "shortTitle": "webgl",
+                "title": "WebGL"
+            },
+            {
+                "shortTitle": "glsl",
+                "title": "OpenGL Shading Language (GLSL)"
+            }
+        ],
+        "img": "pbr.jpg",
+        "footage": {
+            "type": "liveSite",
+            "src": "https://brandonly101.github.io/webgl-physically-based-rendering/"
+        },
+        "src": "https://github.com/brandonly101/webgl-physically-based-rendering"
+    },
+    {
+        "shortTitle": "conquoria",
+        "title": "Conquoria",
+        "projectType": "Augmented Reality Video Game",
+        "dateStart": "January 2016",
+        "dateEnd": "March 2016",
+        "description": "A village build-and-battle mobile game with elements of augmented reality that I developed with a team. Players gather resources, build villages, and face off against other villages.",
+        "descList": [
+            "Created and architected basic gameplay mechanics.",
+            "Integrated augmented reality gameplay features using the Vuforia API for the Unity 3D engine."
+        ],
+        "skills": [
+            {
+                "shortTitle": "csharp",
+                "title": "C#"
+            },
+            {
+                "shortTitle": "unity3d",
+                "title": "Unity 3D Game Engine"
+            },
+            {
+                "shortTitle": "3dfiles",
+                "title": "3D Model Files"
+            },
+            {
+                "shortTitle": "graphics",
+                "title": "3D Computer Graphics"
+            },
+            {
+                "shortTitle": "ar",
+                "title": "Augmented Reality Game Development"
+            },
+            {
+                "shortTitle": "vuforia",
+                "title": "Vuforia"
+            }
+        ],
+        "img": "Conquoria.jpg",
+        "footage": {
+            "type": "embeddedYoutube",
+            "src": "https://www.youtube.com/embed/CpitG-_7ZvI"
+        },
+        "src": "https://github.com/brandonly101/conquoria"
+    },
+    {
+        "shortTitle": "rune",
+        "title": "Rune",
+        "projectType": "Web Application",
+        "dateStart": "April 2016",
+        "dateEnd": "June 2016",
+        "description": "An intuitive and student-focused Kanban project management tool. Developed as a part of a team for my university's senior capstone project.",
+        "descList": [
+            "Designed and develop the front-end framework using Sass, Bootstrap 3, and jQuery.",
+            "Implemented back-end features building on Express, a Node.js web application framework.",
+            "To use, log in as 'brandonly@live.com' and use the password 'test'."
+        ],
+        "skills": [
+            {
+                "shortTitle": "htmlcss",
+                "title": "HTML & CSS"
+            },
+            {
+                "shortTitle": "javascript",
+                "title": "JavaScript"
+            },
+            {
+                "shortTitle": "jquery",
+                "title": "jQuery"
+            },
+            {
+                "shortTitle": "sass",
+                "title": "Sass"
+            },
+            {
+                "shortTitle": "jade",
+                "title": "Jade"
+            },
+            {
+                "shortTitle": "nodejs",
+                "title": "Node.js"
+            },
+            {
+                "shortTitle": "express",
+                "title": "Express"
+            },
+            {
+                "shortTitle": "mongodb",
+                "title": "MongoDB"
+            }
+        ],
+        "img": "Rune.jpg",
+        "footage": {
+            "type": "liveSite",
+            "src": "https://rune130.herokuapp.com/"
+        },
+        "src": "https://github.com/rzeng95/Rune"
+    },
+    {
+        "shortTitle": "fisticuffs",
+        "title": "Fisticuffs",
+        "projectType": "Virtual Reality Video Game",
+        "dateStart": "April 2015",
+        "dateEnd": "June 2015",
+        "description": "A first-person fistfighting game with elements of virtual reality that I developed with a partner. Players engage in 1v1 fights inside a lively tavern, facing opponents until their discombobulation gets too high.",
+        "descList": [
+            "Designed and developed the game mechanics and AI crowd behavior.",
+            "Integrated the Oculus DK2 and conformed the gameplay mechanics to best practices for virtual reality game development.",
+            "Designed the tavern level and lighting."
+        ],
+        "skills": [
+            {
+                "shortTitle": "cplusplus",
+                "title": "C/C++"
+            },
+            {
+                "shortTitle": "ue4",
+                "title": "Unreal Engine 4"
+            },
+            {
+                "shortTitle": "ue4bp",
+                "title": "UE4 Blueprint Scripting"
+            },
+            {
+                "shortTitle": "VR",
+                "title": "Virtual Reality Game Development"
+            },
+            {
+                "shortTitle": "oculus",
+                "title": "Oculus Rift DK2"
+            }
+        ],
+        "img": "Fisticuffs.jpg",
+        "footage": {
+            "type": "embeddedYoutube",
+            "src": "https://www.youtube.com/embed/Cu2_ynG56tM"
+        },
+        "src": "https://github.com/brandonly101/ue4-fisticuffs"
+    },
+    {
+        "shortTitle": "bladequest",
+        "title": "Blade Quest",
+        "projectType": "3D Computer Graphics Project / Video Game",
+        "dateStart": "June 2015",
+        "dateEnd": "Sept 2015",
+        "description": "A small first-person sword-fighting video game and research project that experiments with realistic, comic book-like, and Pixar film-like visual styles.",
+        "descList": [
+            "Implemented various post-processing graphical effects to emulate the visual styles.",
+            "Effects include lighting and shading posterization, color posterization, screenspace edge detection, and resolution scaling.",
+            "Independent research done under the guidance of a professor."
+        ],
+        "skills": [
+            {
+                "shortTitle": "cplusplus",
+                "title": "C/C++"
+            },
+            {
+                "shortTitle": "ue4",
+                "title": "Unreal Engine 4"
+            },
+            {
+                "shortTitle": "ue4bp",
+                "title": "UE4 Blueprint Scripting"
+            },
+            {
+                "shortTitle": "glsl",
+                "title": "OpenGL Shading Language (GLSL)"
+            }
+        ],
+        "img": "BladeQuest.jpg",
+        "footage": {
+            "type": "paper",
+            "src": "/assets/paper.pdf"
+        },
+        "src": "https://github.com/brandonly101/ue4-shaders-blade-quest"
+    },
+    {
+        "shortTitle": "deathOfHen",
+        "title": "The Little Hen and the Little Rooster",
+        "projectType": "3D Real-time Animation",
+        "dateStart": "January 2015",
+        "dateEnd": "March 2015",
+        "description": "A 3D Real-Time Animation that I created based on the Grimm Fairy Tale Death of the Little Hen.",
+        "descList": [
+            "Designed and scripted scenes to occur in the game engine based off of storyboards that I also created."
+        ],
+        "skills": [
+            {
+                "shortTitle": "csharp",
+                "title": "C#"
+            },
+            {
+                "shortTitle": "unity3d",
+                "title": "Unity 3D Game Engine"
+            },
+            {
+                "shortTitle": "3dfiles",
+                "title": "3D Model Files"
+            },
+            {
+                "shortTitle": "graphics",
+                "title": "3D Computer Graphics"
+            }
+        ],
+        "img": "DeathOfHen.jpg",
+        "footage": {
+            "type": "embeddedYoutube",
+            "src": "https://www.youtube.com/embed/rnnW0XOBviI"
+        },
+        "src": "https://github.com/brandonly101/3DRTA-Death-of-Hen"
+    },
+    {
+        "shortTitle": "foodbyte",
+        "title": "FoodByte",
+        "projectType": "Hackathon Web Application",
+        "src": "https://github.com/michellekli/foodie",
+        "dateStart": "April 2016",
+        "dateEnd": "April 2016",
+        "description": "A fun, team-developed web application. Where Tinder meets Yelp, users say Yes to a dish, and FoodByte gives restaurant information for it, or No to it, and FoodByte cycles through other dishes.",
+        "descList": [
+            "Front-end design and development with HTML & CSS, JavaScript, and jQuery.",
+            "Interfaced with the Google Maps API with JavaScript."
+        ],
+        "skills": [
+            {
+                "shortTitle": "htmlcss",
+                "title": "HTML & CSS"
+            },
+            {
+                "shortTitle": "javascript",
+                "title": "JavaScript"
+            },
+            {
+                "shortTitle": "jquery",
+                "title": "jQuery"
+            },
+            {
+                "shortTitle": "gmaps",
+                "title": "Google Maps API"
+            }
+        ],
+        "img": "FoodByte.jpg",
+        "footage": {
+            "type": "liveSite",
+            "src": "http://michellekli.github.io/foodie/"
+        },
+        "src": "https://github.com/michellekli/foodie"
+    },
+    {
+        "shortTitle": "ccledocs",
+        "title": "CCLEDocs Update",
+        "projectType": "SSC Project",
+        "src": "https://github.com/michellekli/foodie",
+        "dateStart": "July 2014",
+        "dateEnd": "August 2014",
+        "description": "A theme revamp of UCLA CCLE's documentation website that I worked on while working at UCLA Social Sciences Computing.",
+        "descList": [
+            "Front-end design and development with HTML & CSS, JavaScript, and jQuery.",
+            "Interfaced with the Google Maps API with JavaScript."
+        ],
+        "skills": [
+            {
+                "shortTitle": "htmlcss",
+                "title": "HTML & CSS"
+            },
+            {
+                "shortTitle": "xml",
+                "title": "XML"
+            },
+            {
+                "shortTitle": "bootstrap3",
+                "title": "Bootstrap 3"
+            },
+            {
+                "shortTitle": "php",
+                "title": "PHP"
+            },
+            {
+                "shortTitle": "mediawiki",
+                "title": "MediaWiki"
+            }
+        ],
+        "img": "CCLEDocs.jpg",
+        "footage": {
+            "type": "liveSite",
+            "src": "https://docs.ccle.ucla.edu/"
+        },
+        "src": ""
+    },
+    {
+        "shortTitle": "cs174a",
+        "title": "Other Fish in the Sea",
+        "projectType": "3D Graphics Project",
+        "dateStart": "November 2014",
+        "dateEnd": "December 2014",
+        "description": "A small game that my group and I developed in WebGL and JavaScript for the term project for our 3D computer graphics class.",
+        "descList": [
+            "Structured the skeleton for the rendering of basic 3D shapes (i.e. spheres and cubes).",
+            "Implemented alpha blending."
+        ],
+        "skills": [
+            {
+                "shortTitle": "htmlcss",
+                "title": "HTML & CSS"
+            },
+            {
+                "shortTitle": "javascript",
+                "title": "JavaScript"
+            },
+            {
+                "shortTitle": "webgl",
+                "title": "WebGL"
+            },
+            {
+                "shortTitle": "graphics",
+                "title": "3D Computer Graphics"
+            }
+        ],
+        "img": "OtherFishInSea.jpg",
+        "footage": {
+            "type": "liveSite",
+            "src": "https://autekroy.github.io/The-Other-Fish-in-the-Sea/game.html"
+        },
+        "src": "https://github.com/autekroy/The-Other-Fish-in-the-Sea"
+    },
+    {
+        "shortTitle": "portfolio",
+        "title": "Portfolio Website",
+        "projectType": "Web Page",
+        "dateStart": "August 2015",
+        "dateEnd": "Present",
+        "description": "My portfolio site, which is a project in and of itself. The portfolio lets me experiment not just in this website's development, but also its design.",
+        "descList": [
+            "Latest iteration uses Webpack and React.js, since I wanted to learn how to use React.js.",
+            "Built on the Jekyll static site generator for easy publishing to GitHub Pages."
+        ],
+        "skills": [
+            {
+                "shortTitle": "htmlcss",
+                "title": "HTML & CSS"
+            },
+            {
+                "shortTitle": "javascript",
+                "title": "JavaScript"
+            },
+            {
+                "shortTitle": "jekyll",
+                "title": "Jekyll Templates"
+            },
+            {
+                "shortTitle": "reactjs",
+                "title": "React.js"
+            }
+        ],
+        "img": "portfolioScreen.jpg",
+        "footage": {
+            "type": "liveSite",
+            "src": "https://brandonly101.github.io/"
+        },
+        "src": "https://github.com/brandonly101/brandonly101.github.io"
+    }
+]

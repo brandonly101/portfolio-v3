@@ -1,0 +1,133 @@
+// Copyright Brandon Ly 2017 all rights reserved.
+
+// Skills properties.
+@import "global-vars";
+
+.skills {
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        display: inline-block;
+        margin: 2px 2px;
+        padding: 0 8px;
+        border-radius: 2px;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 28px;
+        background-color: lighten($color-primary, 20%);
+        color: $color-secondary;
+        box-sizing: border-box;
+    }
+
+    .php {
+        background-color: rgb(98, 125, 188);
+        color: inherit;
+    }
+
+    .javascript {
+        background-color: #F0DB4F;
+        color: #0D0D0D;
+    }
+
+    .mysql {
+        background-color: rgb(226, 141, 34);
+        color: rgb(12, 98, 136);
+    }
+
+    .htmlcss {
+        background-color: rgb(238, 100, 52);
+        color: rgb(17, 113, 183);
+    }
+
+    .sass {
+        background-color: #cf659a;
+        color: #fff;
+    }
+
+    .nodejs {
+        background-color: #7dbf38;
+        color: #fff;
+    }
+
+    .moodle {
+        background-color: rgb(243, 146, 59);
+        color: #FFF;
+    }
+
+    .java {
+        background-color: rgb(230, 39, 53);
+        color: #FFF;
+    }
+
+    .gwt {
+        background-color: rgb(66,66,66);
+        color: rgb(245,56,60);
+    }
+
+    .parallax3d {
+        background-color: rgb(242,12,26);
+        color: rgb(234, 234, 234);
+    }
+
+    .webgl {
+        background-color: rgb(152, 4, 12);
+        color: #FFF;
+    }
+
+    .glsl {
+        background-color: #4085b7;
+        color: #fff;
+    }
+
+    .threejs {
+        background-color: #FFF;
+        color: rgb(121, 121, 121);
+        border: 1px solid rgb(121, 121, 121);
+    }
+
+    .unity3d {
+        background-color: #00bcd4;
+        color: #5a5a5b;
+    }
+
+    .ue4, .ue4bp {
+        background-color: #103376;
+        color: #FFF;
+        border: 2px solid #d9ba8b;
+    }
+
+    .vuforia {
+        background-color: #484848;
+        color: #FFF;
+        border: 2px solid #6bc143;
+    }
+
+    .express {
+        background-color: #fff;
+        color: #2a3b4a;
+        border: 2px solid #2a3b4a;
+    }
+
+    .oculus {
+        background-color: #000;
+        color: #FFF;
+    }
+
+    .reactjs {
+        background-color: #222222;
+        color: #5adafd;
+    }
+
+    .mongodb {
+        background-color: #484749;
+        color: #4eac47;
+    }
+
+    .jquery {
+        background-color: #0066ae;
+        color: #FFF;
+    }
+}
