@@ -5,6 +5,8 @@
 
 .aboutMiniLanding {
     background-image: url("../assets/images/dtlaBlur.jpg");
+    background-size: cover;
+    background-blend-mode: overlay;
     filter: brightness(50%);
     height: 140px !important;
 }

@@ -34,7 +34,7 @@ class ProjectContentInfo extends React.Component {
                     {projectData.projectType}
                     <span>{projectData.dateStart} - {projectData.dateEnd}</span></div>
                 <div className={projectsStyles.description}>
-                    {projectData.description} {projectData.footage.type == "liveSite" ?
+                    {projectData.description} {projectData.footage.type === "liveSite" ?
                         <a href={projectData.footage.src} className={projectsStyles.liveSite} target="_blank">Live site</a> :
                         null} {projectData.footage.type == "paper" ?
                         <a href={projectData.footage.src} className={projectsStyles.liveSite} target="_blank">Research paper</a> :
@@ -148,7 +148,7 @@ export default class Projects extends React.Component {
                             </div>
                         </Col>
                         <Col xs={12} md={6} className={projectsStyles.content}>
-                            <ProjectContentInfo projectData={this.state.projectToShow[row]} />
+                            <ProjectContentInfo key={0} projectData={this.state.projectToShow[row]} />
                         </Col>
                     </Row>
                 </Container>
@@ -163,6 +163,7 @@ export default class Projects extends React.Component {
         for (let i = 9; i < ProjectsData.length; i++) {
             projectsOther.push(
                 <ProjectContentInfo
+                    key={i}
                     className={projectsStyles.otherProject}
                     projectData={ProjectsData[i]}
                 />

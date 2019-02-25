@@ -7,7 +7,7 @@ import headerStyles from "../style/header.module.scss";
 export default class Header extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { isScrolled: (document.documentElement.scrollTop > 0) };
+        this.state = { isScrolled: false };
         this.scrollHandler = this.scrollHandler.bind(this);
     }
 

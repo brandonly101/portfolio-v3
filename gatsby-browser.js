@@ -5,5 +5,8 @@
  */
 
 // You can delete this file if you're not using it
+// import './src/style/_global-vars.module.scss';
+// import './src/style/grid.scss';
+// import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import 'bootstrap/scss/bootstrap-grid.scss';
 import './src/style/main.scss';
