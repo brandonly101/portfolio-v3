@@ -208,8 +208,11 @@ export default class LandingThree extends React.Component {
     }
 
     onMouseMove(e) {
-        const phi = (e.x / window.innerHeight - 0.5) * Math.PI / 4;
-        const theta = (e.y / window.innerHeight) * Math.PI / 2 + Math.PI / 4;
+        const width = document.body.clientWidth;
+        const height = window.innerHeight;
+
+        const phi = (e.x / width - 0.5) * width / height * Math.PI / 5;
+        const theta = (e.y / height) * Math.PI / 2 + Math.PI / 4;
 
         const r = this.radius;
         const x = r * Math.sin(theta) * Math.sin(phi);
