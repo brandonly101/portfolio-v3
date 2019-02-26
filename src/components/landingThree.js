@@ -107,20 +107,20 @@ export default class LandingThree extends React.Component {
         // scene.add(sphereLeft);
         // scene.add(cubeRight);
 
-        const ringWidth = 25;
-        const ringNumber = 3000;
-        const ringCount = 5;
+        const ringWidth = 15;
+        const ringNumber = 1250;
+        const ringCount = 8;
 
         let ringPositions = []; // should be ringNumber * 3
         for (let i = 0; i < ringCount; i++) {
-            const ringRadius = 175 * (i + 1);
+            const ringRadius = 100 * (i + 1);
 
             for (let j = 0; j < ringNumber; j++) {
                 const theta = Math.random() * 2 * Math.PI;
                 const x = Math.cos(theta);
                 const y = Math.sin(theta);
 
-                const rOffset = (Math.random() > 0.5 ? 1 : -1) * ringWidth * Math.pow(Math.random(), 0.8);
+                const rOffset = (Math.random() > 0.5 ? 1 : -1) * ringWidth * Math.pow(Math.random(), 0.85);
                 const r = ringRadius + rOffset;
 
                 const phiOffset = Math.random() * 2 * Math.PI;
@@ -134,26 +134,33 @@ export default class LandingThree extends React.Component {
                     x * r + xOffset,
                     y * r + yOffset,
                     zOffset,
-                    (1 - Math.pow(rOffset / ringWidth, 2)) * 1.65
+                    (1 - Math.pow(rOffset / ringWidth, 2)) * 1.5
                 ));
             }
         }
 
-        const geom = new THREE.SphereBufferGeometry();
         const mat = new THREE.MeshPhongMaterial({
             color: '#d1e8ff',
             shininess: 0,
             // emissive: '#ffef8c',
             // emissiveIntensity: 1.5
         });
+        const mat2 = new THREE.MeshPhongMaterial({
+            color: '#ffef8c',
+            shininess: 0,
+            // emissive: '#ffef8c',
+            // emissiveIntensity: 1.5
+        });
+        const geom = new THREE.SphereGeometry();
         const rings = [];
         for (let i = 0; i < ringCount; i++) {
             const ring = new THREE.Group();
+            // const ringGeom = new THREE.Geometry();
 
             for (let j = i * ringNumber; j < (i + 1) * ringNumber; j++) {
                 const p = ringPositions[j];
-                const tempSphere = new THREE.Mesh(geom, mat);
 
+                const tempSphere = new THREE.Mesh(geom, (i % 2) == 0 ? mat : mat2);
                 tempSphere.scale.set(p.w, p.w, p.w);
                 tempSphere.rotation.set(p.x, p.y, p.z);
                 tempSphere.position.set(p.x, p.y, p.z);
@@ -161,7 +168,7 @@ export default class LandingThree extends React.Component {
                 ring.add(tempSphere);
             }
 
-            if (i % 2 != 0) {
+            if ((i % 2) != 0) {
                 ring.rotateOnAxis(new THREE.Vector3(1, 0, 0), Math.PI / 2);
             }
 
@@ -177,6 +184,7 @@ export default class LandingThree extends React.Component {
 
         this.radius = camera.position.z = 175;
         this.loopingPi = 0;
+        this.ringCount = ringCount;
 
         this.container.appendChild(this.renderer.domElement);
         this.start();
@@ -219,10 +227,11 @@ export default class LandingThree extends React.Component {
         // this.cubeRight.rotation.x += 0.01;
         // this.cubeRight.rotation.y += 0.01;
 
-        for (let i = 0; i < 5; i++) {
+        const ringCount = this.ringCount;
+        for (let i = 0; i < ringCount; i++) {
             this.rings[i].rotateOnAxis(
                 new THREE.Vector3(0, 0, 1),
-                ((i % 2) == 0 ? -1 : 1) * 0.001 * (5 - i) / 5
+                ((i % 2) == 0 ? -1 : 1) * 0.001 * (ringCount - i) / ringCount
             );
         }
 
