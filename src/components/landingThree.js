@@ -155,7 +155,6 @@ export default class LandingThree extends React.Component {
         const rings = [];
         for (let i = 0; i < ringCount; i++) {
             const ring = new THREE.Group();
-            // const ringGeom = new THREE.Geometry();
 
             for (let j = i * ringNumber; j < (i + 1) * ringNumber; j++) {
                 const p = ringPositions[j];
