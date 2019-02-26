@@ -3,7 +3,7 @@
 // About page properties.
 @import "global-vars";
 
-.aboutMiniLanding {
+.blogMiniLanding {
     background-image: url("../assets/images/dtlaBlur.jpg");
     background-size: cover;
     background-blend-mode: overlay;
@@ -11,31 +11,34 @@
     height: 140px !important;
 }
 
-.aboutDescription {
+.blogDescription {
     // padding: 0 20%;
     margin-left: auto;
     margin-right: auto;
-    max-width: 600px;
-    padding-top: 60px;
-    text-align: center;
+    max-width: 650px;
+    // padding-top: 60px;
+    // text-align: center;
 
     img {
         width: 25%;
     }
 
     .title {
+        width: 100%;
+        border-bottom: 2px solid darken($color-secondary, 6.25%);
+
         padding-top: 3rem;
         padding-bottom: 2rem;
+        margin-bottom: 40px;
 
         font-size: 3rem;
         font-weight: 700;
-        text-align: center;
+        // text-align: center;
     }
 
-    .paragraph {
-        padding: 40px;
+    .content {
         padding-bottom: 80px;
         text-align: left;
-        font-size: 1.25rem;
+        font-size: 1.2rem;
     }
 }

@@ -51,7 +51,7 @@ export default class Header extends React.Component {
                                     <Link to="/">Home</Link>
                                 </div>
                                 <div className={headerStyles.elem}>
-                                    <Link to="/projects/">Blog</Link>
+                                    <Link to="/blog/">Blog</Link>
                                 </div>
                                 {/* <div className={headerStyles.elem}>
                                     <a href="https://www.dropbox.com/s/gr6tw5nf7dvrwg1/LyBrandonResume.pdf?dl=0" target="_blank">Resume</a>
