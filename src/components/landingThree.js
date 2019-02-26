@@ -154,9 +154,9 @@ export default class LandingThree extends React.Component {
                 const p = ringPositions[j];
                 const tempSphere = new THREE.Mesh(geom, mat);
 
-                tempSphere.position.set(p.x, p.y, p.z);
-                tempSphere.rotation.set(p.x, p.y, p.z);
                 tempSphere.scale.set(p.w, p.w, p.w);
+                tempSphere.rotation.set(p.x, p.y, p.z);
+                tempSphere.position.set(p.x, p.y, p.z);
 
                 ring.add(tempSphere);
             }
