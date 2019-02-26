@@ -35,15 +35,17 @@ class Home extends React.Component {
                             </div>
                             <div className={homeStyles.links}>
                                 <ul>
-                                    <li key={0}><Scroll.Link href="" to="work" smooth={true} duration={350} offset={-100}>Work</Scroll.Link></li>
                                     <li key={1}><Scroll.Link href="" to="projects" smooth={true} duration={350} offset={-100}>Projects</Scroll.Link></li>
+                                    <li key={0}><Scroll.Link href="" to="work" smooth={true} duration={350} offset={-100}>Work Experience</Scroll.Link></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <Projects/>
-                <Work/>
+                <div className={homeStyles.bodyContent}>
+                    <Projects/>
+                    <Work/>
+                </div>
             </>
         );
     }
