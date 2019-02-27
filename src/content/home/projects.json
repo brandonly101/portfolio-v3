@@ -6,7 +6,7 @@
         "src": "https://github.com/brandonly101/webgl-physically-based-rendering",
         "dateStart": "August 2015",
         "dateEnd": "February 2019",
-        "description": "A 3D model physically-based renderer with adjustable material parameters for color, roughness, and metallicness.",
+        "description": "A 3D model physically-based renderer with adjustable material parameters for color, roughness, and metalness.",
         "descList": [
             "Features fully physically-based shading based on microfacet theory.",
             "Also features specular image-based lighting and diffuse irradiance.",

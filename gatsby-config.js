@@ -1,16 +1,16 @@
 module.exports = {
     siteMetadata: {
-        title: `Portfolio Site`,
-        description: `same tbh`,
-        author: `xD`,
+        title: `Brandon Ly - Portfolio`,
+        description: `Home Site`,
+        author: `Brandon Ly`,
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
-                name: `pages`,
-                path: `${__dirname}/src/pages`,
+                name: `blog`,
+                path: `${__dirname}/src/content/blog`,
             },
         },
         `gatsby-transformer-sharp`,
@@ -35,6 +35,7 @@ module.exports = {
             resolve: 'gatsby-transformer-remark',
             options: {
                 plugins: [], // just in case those previously mentioned remark plugins sound cool :)
+                "excerpt_separator": `<!-- end -->`
             }
         }
     ],
