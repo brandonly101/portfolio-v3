@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import * as Scroll from "react-scroll";
 
 import Layout from "../components/layout";
@@ -27,7 +26,7 @@ class Home extends React.Component {
                     <div id="Landing" className={homeStyles.landing}>
                         <div className={homeStyles.content}>
                             <div className={homeStyles.image}>
-                                <img src={require("../assets/images/selfportraitcircle.png")}/>
+                                <img src={require("../assets/images/selfportraitcircle.png")} alt=""/>
                             </div>
                             <div className={homeStyles.paragraph}>
                                 Welcome to my page! I am a software engineer who loves all things game development,
@@ -35,8 +34,8 @@ class Home extends React.Component {
                             </div>
                             <div className={homeStyles.links}>
                                 <ul>
-                                    <li key={1}><Scroll.Link href="" to="projects" smooth={true} duration={350} offset={-100}>Projects</Scroll.Link></li>
-                                    <li key={0}><Scroll.Link href="" to="work" smooth={true} duration={350} offset={-100}>Work Experience</Scroll.Link></li>
+                                    <li key={1}><Scroll.Link href="" to="projects" rel="noopener noreferrer" smooth={true} duration={350} offset={-100}>Projects</Scroll.Link></li>
+                                    <li key={0}><Scroll.Link href="" to="work" rel="noopener noreferrer" smooth={true} duration={350} offset={-100}>Work Experience</Scroll.Link></li>
                                 </ul>
                             </div>
                         </div>

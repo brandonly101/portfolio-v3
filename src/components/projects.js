@@ -35,11 +35,11 @@ class ProjectContentInfo extends React.Component {
                     <span>{projectData.dateStart} - {projectData.dateEnd}</span></div>
                 <div className={projectsStyles.description}>
                     {projectData.description} {projectData.footage.type === "liveSite" ?
-                        <a href={projectData.footage.src} className={projectsStyles.liveSite} target="_blank">Live site</a> :
-                        null} {projectData.footage.type == "paper" ?
-                        <a href={projectData.footage.src} className={projectsStyles.liveSite} target="_blank">Research paper</a> :
-                        null} {projectData.src != "" ?
-                        <a href={projectData.src} className={projectsStyles.src} target="_blank">Source code</a> :
+                        <a href={projectData.footage.src} className={projectsStyles.liveSite} target="_blank" rel="noopener noreferrer">Live site</a> :
+                        null} {projectData.footage.type === "paper" ?
+                        <a href={projectData.footage.src} className={projectsStyles.liveSite} target="_blank" rel="noopener noreferrer">Research paper</a> :
+                        null} {projectData.src !== "" ?
+                        <a href={projectData.src} className={projectsStyles.src} target="_blank" rel="noopener noreferrer">Source code</a> :
                         null}
                     <ul>
                         {colDescProjects}
@@ -138,12 +138,13 @@ export default class Projects extends React.Component {
                     <Row className={projectsStyles.project}>
                         <Col xs={12} md={6}>
                             <div className={projectsStyles.img}>
-                                { (footage.type == "embeddedYoutube") ?
+                                { (footage.type === "embeddedYoutube") ?
                                     <iframe
+                                        title="YouTube"
                                         src={footage.src}
                                         frameBorder={0}
                                         allowFullScreen="allowfullscreen"/> :
-                                    <img src={require("../assets/images/projects/" + this.state.projectToShow[row].img)}/>
+                                    <img src={require("../assets/images/projects/" + this.state.projectToShow[row].img)} alt=""/>
                                 }
                             </div>
                         </Col>

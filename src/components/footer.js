@@ -16,13 +16,13 @@ export default class Footer extends React.Component {
                         <FontAwesomeIcon icon="copyright" /> 2019 Brandon Ly
                     </div>
                     <div className={footerStyles.contact}>
-                        <a href="mailto:brandonly@live.com" target="_blank" className={footerStyles.contactIcon}>
+                        <a href="mailto:brandonly@live.com" target="_blank" rel="noopener noreferrer" className={footerStyles.contactIcon}>
                             <FontAwesomeIcon icon="envelope"/>
                         </a>
-                        <a href="https://www.linkedin.com/in/brandon-ly-1a412b73" target="_blank" className={footerStyles.contactIcon}>
+                        <a href="https://www.linkedin.com/in/brandon-ly-1a412b73" target="_blank" rel="noopener noreferrer" className={footerStyles.contactIcon}>
                             <FontAwesomeIcon icon={["fab", "linkedin"]}/>
                         </a>
-                        <a href="https://www.github.com/brandonly101" target="_blank" className={footerStyles.contactIcon}>
+                        <a href="https://www.github.com/brandonly101" target="_blank" rel="noopener noreferrer" className={footerStyles.contactIcon}>
                             <FontAwesomeIcon icon={["fab", "github"]}/>
                         </a>
                     </div>

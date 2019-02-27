@@ -9,14 +9,14 @@ import '../style/skills.scss';
 export default class Work extends React.Component {
     render() {
         // Create the work page body content.
-        var workJobs = [];
-        for (var i = 0; i < WorkData.length; i++) {
+        let workJobs = [];
+        for (let i = 0; i < WorkData.length; i++) {
 
             // Create the work image column
-            var img = (WorkData[i].shortTitle == "ssc") ?
-                    <div className={workStyles.ssc}><img src={WorkData[i].img}/></div> :
-                    <img src={require("../assets/images/work/" + WorkData[i].img)}/>;
-            var colImg = (
+            let img = (WorkData[i].shortTitle === "ssc") ?
+                    <div className={workStyles.ssc}><img src={WorkData[i].img} alt=""/></div> :
+                    <img src={require("../assets/images/work/" + WorkData[i].img)} alt=""/>;
+            let colImg = (
                 <Col xs={12} md={4}>
                     <div className={workStyles.img}>
                         {img}
@@ -25,21 +25,21 @@ export default class Work extends React.Component {
             );
 
             // Create the work description column.
-            var colDescProjects = [];
-            for (var a = 0; a < WorkData[i].descList.length; a++) {
+            let colDescProjects = [];
+            for (let a = 0; a < WorkData[i].descList.length; a++) {
                 colDescProjects.push(
                     <li key={a}>{WorkData[i].descList[a]}</li>
                 );
             }
-            var colSkills = [];
-            for (var a = 0; a < WorkData[i].skills.length; a++) {
+            let colSkills = [];
+            for (let a = 0; a < WorkData[i].skills.length; a++) {
                 colSkills.push(
                     <li key={a} className={WorkData[i].skills[a].shortTitle}>
                         {WorkData[i].skills[a].title}
                     </li>
                 );
             }
-            var colDesc = (
+            let colDesc = (
                 <Col xs={12} md={8}>
                     <div className={workStyles.title}>{WorkData[i].title}</div>
                     <div className={workStyles.subtitle}>{WorkData[i].company} <span>{WorkData[i].dateStart} - {WorkData[i].dateEnd}</span></div>

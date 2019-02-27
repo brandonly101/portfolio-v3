@@ -1,10 +1,8 @@
 // Node package imports.
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Custom imports.
 import Layout from "../components/layout";
-import { Container, Row, Col } from 'reactstrap';
 import aboutStyles from '../style/about.module.scss';
 
 export default class About extends React.Component {
@@ -13,7 +11,7 @@ export default class About extends React.Component {
             <Layout>
                 <div className={aboutStyles.aboutMiniLanding}/>
                 <div className={aboutStyles.aboutDescription}>
-                    <img src={require("../assets/images/about/me.png")}/>
+                    <img src={require("../assets/images/about/me.png")} alt=""/>
                     <div className={aboutStyles.paragraph}>
                             Hello! I'm Brandon Ly! I am a game developer and software engineer.
                             I really enjoy the following:

@@ -159,7 +159,7 @@ export default class LandingThree extends React.Component {
             for (let j = i * ringNumber; j < (i + 1) * ringNumber; j++) {
                 const p = ringPositions[j];
 
-                const tempSphere = new THREE.Mesh(geom, (i % 2) == 0 ? mat : mat2);
+                const tempSphere = new THREE.Mesh(geom, (i % 2) === 0 ? mat : mat2);
                 tempSphere.scale.set(p.w, p.w, p.w);
                 tempSphere.rotation.set(p.x, p.y, p.z);
                 tempSphere.position.set(p.x, p.y, p.z);
@@ -167,7 +167,7 @@ export default class LandingThree extends React.Component {
                 ring.add(tempSphere);
             }
 
-            if ((i % 2) != 0) {
+            if ((i % 2) !== 0) {
                 ring.rotateOnAxis(new THREE.Vector3(1, 0, 0), Math.PI / 2);
             }
 
@@ -230,7 +230,7 @@ export default class LandingThree extends React.Component {
         for (let i = 0; i < ringCount; i++) {
             this.rings[i].rotateOnAxis(
                 new THREE.Vector3(0, 0, 1),
-                ((i % 2) == 0 ? -1 : 1) * 0.001 * (ringCount - i) / ringCount
+                ((i % 2) === 0 ? -1 : 1) * 0.001 * (ringCount - i) / ringCount
             );
         }
 
