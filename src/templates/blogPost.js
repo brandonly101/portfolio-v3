@@ -1,6 +1,6 @@
 // Node package imports.
 import React from 'react';
-import Helmet from 'react-helmet';
+import SEO from "../components/seo";
 import { graphql } from 'gatsby';
 
 // Custom imports.
@@ -13,7 +13,7 @@ export default class BlogPost extends React.Component {
         const post = this.props.data.markdownRemark;
         return (
             <Layout>
-                <Helmet title={post.frontmatter.title}/>
+                <SEO title={post.frontmatter.title} keywords={[`portfolio`, `react`, `graphics`, `games`]} />
                 <div className={blogStyles.blogMiniLanding}/>
                 <div className={blogStyles.blogDescription}>
                     <div className={blogStyles.title}>

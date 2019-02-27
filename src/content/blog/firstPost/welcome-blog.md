@@ -1,17 +1,28 @@
 ---
 date: "2019-02-26T17:12:33.962Z"
 path: "/blog/welcome-blog"
-title: "Welcome to my Blog!"
+title: "First Post - Welcome to my Blog!"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed rhoncus dui. Suspendisse placerat commodo eros, sed lobortis nunc. Integer sit amet rhoncus turpis. Nam bibendum bibendum efficitur. Pellentesque urna felis, consectetur ac urna auctor, elementum vulputate mi. Duis tristique lorem ut sem sagittis, id fermentum arcu pellentesque. Curabitur porttitor venenatis rutrum. Vivamus felis est, rhoncus in arcu vel, posuere condimentum nibh. Duis eget orci non mauris sollicitudin elementum. Proin enim turpis, sodales eu elit vitae, elementum viverra lacus. Quisque ut eros congue, mattis nulla ut, rhoncus nunc. In tempus neque interdum, pulvinar ligula in, elementum velit. Proin luctus metus a nulla congue condimentum. Curabitur viverra dolor nec elit dapibus volutpat. Sed sit amet pellentesque tellus. Proin at imperdiet dolor.
+<!--
+- what this blog is
+- where did it come from
+- your interest in graphics today and how it affects you
+- find it amazing how graphics is closer and closer to reality as time goes on
+- want to be part of that pursuit to make things more visually realistic and beautiful
+- blog will be that log/record of my personal pursuit
+- personal pursuit includes graphics experiments, graphics discussions and other musings of games and graphics
+- hope that some day this log/record of my personal pursuit will help others
+-->
+
+Hello! This is my first post on my blog, hopefully one of many others! This blog will be used to share my experiences, personal projects, experiments, and other musings about computer graphics and rendering.<br>
+<br>
+I always enjoyed and appreciated computer graphics in games. Earliest memories included playing around with Crysis and its extensive amount of beautiful and realistic graphical effects. I would see what changing various settings did to the game visually and read up on the game's many then-sophisticated graphical techniques. It amazed me the things the game did to try its best to mirror reality and intrigued me what was done to make them happen.<br>
+<br>
+This admiration and appreciation for realism and beauty in video games carries on today through my goals and endeavors with graphics. Studios push the boundaries on beauty and realism in rendering in a pursuit of getting closer and closer to reality, and I want to take part in this pursuit.<br>
+<br>
+This blog will be an archive of my personal pursuit. I hope that some day this blog will be a large library of my experiments and experiences, written down and archived for me to reflect on and for others to read and perhaps even learn from.<br>
+<br>
+Thanks for reading, and stay tuned for what this blog holds!
 
 <!-- end -->
-
-Donec blandit egestas elit a varius. Vivamus ipsum elit, tempor a auctor sit amet, laoreet sed est. Proin pellentesque consectetur sapien pulvinar suscipit. Maecenas scelerisque, turpis vel consequat tempor, nulla massa consequat odio, sit amet feugiat nunc magna nec lacus. Duis malesuada fermentum nisi ac imperdiet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at fringilla augue, a imperdiet sapien. Integer risus leo, porta posuere lacus sed, semper commodo orci. Nam dapibus non nisi eu fringilla. Nullam accumsan nunc vel ante scelerisque lacinia.
-
-Nulla elementum dignissim vehicula. Vivamus egestas metus at orci pretium malesuada. Cras id erat vel augue sodales tempor quis eget metus. Nam nec odio et tortor auctor imperdiet. Ut egestas suscipit enim, dapibus suscipit eros finibus sit amet. Donec eros velit, tempus vitae congue sed, posuere nec nunc. Suspendisse lobortis ultricies pulvinar. Maecenas elementum dolor a ornare imperdiet. Mauris iaculis laoreet erat, at fermentum nisl rhoncus a. Nullam ultrices massa sit amet tempor mattis. Etiam massa nisi, consectetur eget enim ut, pretium porttitor velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vulputate varius nisi ut efficitur. Pellentesque at maximus mauris. Fusce porta, enim quis porttitor elementum, velit odio lobortis ante, in molestie quam dolor rutrum leo.
-
-In euismod erat sit amet nisi placerat posuere. In venenatis sapien ac suscipit scelerisque. Pellentesque vitae turpis quis nunc consectetur cursus eget id ante. Aenean quis leo mauris. Nunc quis tincidunt libero, eget vehicula mauris. Pellentesque cursus, enim eu interdum congue, nibh urna varius sapien, mattis feugiat velit sapien quis massa. Ut auctor erat sed sapien molestie gravida. Duis turpis est, ornare nec nisi a, lobortis vestibulum orci. Ut pulvinar luctus feugiat. Quisque consequat aliquam ex tristique commodo. In rutrum lacus varius urna vestibulum, eu aliquet libero dictum. Donec porta nibh nec luctus suscipit. Suspendisse id purus vitae metus cursus condimentum. Praesent gravida vehicula lacus vel mollis.
-
-Praesent nec dolor a risus commodo pretium id non mauris. Donec ut viverra tellus. Nullam eget dolor justo. Sed euismod purus et ante finibus, eu tempor eros porttitor. Praesent pellentesque magna tincidunt lorem ornare, at lobortis ante bibendum. Etiam quis diam sed ante ultricies auctor eget eget nisl. Integer sapien metus, vehicula in sem ut, dapibus mattis felis. Vestibulum quis odio mauris. Pellentesque suscipit justo quis nunc finibus faucibus. Vivamus mattis, ante sit amet egestas pellentesque, nisi odio scelerisque est, vitae efficitur urna eros non turpis. Suspendisse sodales finibus rutrum. Aliquam pretium fringilla ex. Maecenas augue lacus, convallis vel lacus a, finibus convallis velit.

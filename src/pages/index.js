@@ -51,12 +51,10 @@ class Home extends React.Component {
 }
 
 const IndexPage = () => (
-    <>
-        <Layout>
-            <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-            <Home/>
-        </Layout>
-    </>
+    <Layout>
+        <SEO title="Home" keywords={[`portfolio`, `react`, `graphics`, `games`]} />
+        <Home/>
+    </Layout>
 );
 
 export default IndexPage;

@@ -1,12 +1,11 @@
 // Node package imports.
 import React from 'react';
-import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
 import { graphql } from 'gatsby';
 
 // Custom imports.
+import SEO from "../components/seo";
 import Layout from "../components/layout";
-// import BlogPostArticle from "../components/article.js";
 import blogStyles from '../style/blog.module.scss';
 
 export default class Blog extends React.Component {
@@ -40,7 +39,7 @@ export default class Blog extends React.Component {
 
         return (
             <Layout>
-                <Helmet title="Blog" />
+                <SEO title="Blog" keywords={[`portfolio`, `react`, `graphics`, `games`]} />
                 <div className={blogStyles.blogMiniLanding}/>
                 {postExcerpts}
             </Layout>
