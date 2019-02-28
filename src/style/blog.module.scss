@@ -27,7 +27,7 @@
         width: 100%;
         // border-bottom: 2px solid darken($color-secondary, 6.25%);
 
-        padding-top: 2rem;
+        padding-top: 3rem;
         padding-bottom: 1rem;
         // margin-bottom: 40px;
 
@@ -44,7 +44,7 @@
 
     .content {
         color: $color-primary;
-        padding-bottom: 80px;
+        padding-bottom: 3rem;
         text-align: left;
         font-size: 1.125rem;
     }
@@ -53,4 +53,8 @@
 .blogDivider {
     width: 100%;
     border-bottom: 2px solid darken($color-secondary, 6.25%);
+}
+
+.blogSpacer {
+    height: 5rem;
 }

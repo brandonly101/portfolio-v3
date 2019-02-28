@@ -17,7 +17,8 @@ export default class LandingThree extends React.Component {
     }
 
     componentDidMount() {
-        const width = document.body.scrollWidth;
+        // const width = window.innerWidth;
+        const width = document.body.clientWidth;
         const height = window.innerHeight;
 
         // Create scene basics.

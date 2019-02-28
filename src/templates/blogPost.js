@@ -22,6 +22,7 @@ export default class BlogPost extends React.Component {
                     <div className={blogStyles.date}>{post.frontmatter.date}</div>
                     <div className={blogStyles.content} dangerouslySetInnerHTML={{ __html: post.html }}/>
                 </div>
+                <div className={blogStyles.blogSpacer}/>
             </Layout>
         );
     }

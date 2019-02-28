@@ -16,8 +16,6 @@ export default class Blog extends React.Component {
         for (let i = 0; i < posts.length; i++) {
             const post = posts[i].node;
 
-            const divider = (i + 1 !== posts.length) ? <div className={blogStyles.blogDivider}/> : null;
-
             const postExcerpt = (
                 <div key={i} className={blogStyles.blogDescription}>
                     <Link to={post.frontmatter.path}>
@@ -30,7 +28,7 @@ export default class Blog extends React.Component {
                             dangerouslySetInnerHTML={{ __html: '<p>' + post.excerpt + '</p>' }}
                         />
                     </Link>
-                    {divider}
+                    <div className={blogStyles.blogDivider}/>
                 </div>
             );
 
@@ -42,6 +40,7 @@ export default class Blog extends React.Component {
                 <SEO title="Blog" keywords={[`portfolio`, `react`, `graphics`, `games`]} />
                 <div className={blogStyles.blogMiniLanding}/>
                 {postExcerpts}
+                <div className={blogStyles.blogSpacer}/>
             </Layout>
         );
     }
