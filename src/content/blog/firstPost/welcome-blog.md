@@ -17,7 +17,7 @@ title: "In Pursuit of Realism"
 
 Hello! This is my first post on my blog, hopefully one of many others! This blog will be used to share my experiments, personal projects, and other musings about games, graphics and rendering.<br>
 <br>
-Video games have been a part of my life for as long as I remember, but I especially enjoyed and appreciated the visual realism in them. Earliest memories included playing with Crysis and its extensive amount of graphical effects. I would see what changing various settings did to the game visually and read up on the game's many sophisticated rendering techniques. It amazed me how the game did it's best to mirror reality and intrigued me what was done to accomplish that. I saw beauty in pushes for visual realism.<br>
+Video games have been a part of my life for as long as I remember, but I especially enjoyed and appreciated the visual realism in them. Earliest memories included playing with Crysis and its extensive amount of graphical effects. I would see what changing various settings did to the game visually and read up on the game's many sophisticated rendering techniques. It amazed me how the game did its best to mirror reality and intrigued me what was done to accomplish that. I saw beauty in its visual realism.<br>
 <br>
 This admiration and appreciation for realism and beauty in games carries on today through my goals and endeavors with graphics. Studios push the boundaries on realism and beauty in rendering, in a pursuit of getting closer and closer to reality. I want to take part in this pursuit.<br>
 <br>
