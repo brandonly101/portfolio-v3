@@ -1,6 +1,5 @@
 // Node package imports.
 import React from 'react';
-// import Helmet from 'react-helmet';
 
 // Custom imports.
 import SEO from "../components/seo";

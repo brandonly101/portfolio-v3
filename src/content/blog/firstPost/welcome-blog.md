@@ -23,6 +23,6 @@ This admiration and appreciation for realism and beauty in games carries on toda
 <br>
 This blog will be an archive of my personal pursuit. I hope that some day this blog will be a large library of my experiments and experiences, written down and archived for me to reflect on and for others to read, explore and perhaps even learn from.<br>
 <br>
-Thanks for reading, and stay tuned for what this blog holds!
+Thank you for reading, and stay tuned for what this blog holds!
 
 <!-- end -->

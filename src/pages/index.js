@@ -12,8 +12,6 @@ import Projects from '../components/projects';
 import homeStyles from '../style/home.module.scss';
 import '../style/skills.scss';
 
-// Custom imports.
-
 class Home extends React.Component {
     componentDidUpdate() {
         window.scrollTo(0, 0);

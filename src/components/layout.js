@@ -4,7 +4,6 @@ import { StaticQuery, graphql } from "gatsby";
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faAngleUp, faAngleDown, faCopyright, faEnvelope } from '@fortawesome/free-solid-svg-icons'
-// import { faCopyright } from '@fortawesome/free-regular-svg-icons'
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import Header from "./header";

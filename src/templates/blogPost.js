@@ -5,7 +5,6 @@ import { graphql } from 'gatsby';
 
 // Custom imports.
 import Layout from "../components/layout";
-// import BlogPostArticle from "../components/article.js";
 import blogStyles from '../style/blog.module.scss';
 
 export default class BlogPost extends React.Component {
