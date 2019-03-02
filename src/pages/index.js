@@ -28,14 +28,14 @@ class Home extends React.Component {
                                 <img src={require("../assets/images/selfportraitcircle.png")} alt=""/>
                             </div>
                             <div className={homeStyles.paragraph}>
-                                Welcome to my page! I am a software engineer who loves all things game development,
-                                computer graphics and data visualizations!
+                                Welcome! I am a software engineer who loves all things software development, game development and
+                                computer graphics!
                             </div>
                             <div className={homeStyles.links}>
                                 <ul>
-                                    <li key={1}><Scroll.Link href="" to="projects" rel="noopener noreferrer" smooth={true} duration={350} offset={-100}>Projects</Scroll.Link></li>
-                                    <li key={0}><Scroll.Link href="" to="work" rel="noopener noreferrer" smooth={true} duration={350} offset={-100}>Work Experience</Scroll.Link></li>
-                                    <li key={0}><Link to="/blog" rel="noopener noreferrer">Blog</Link></li>
+                                    <li key={0}><Scroll.Link href="" to="projects" rel="noopener noreferrer" smooth={true} duration={350} offset={-100}>Projects</Scroll.Link></li>
+                                    <li key={1}><Scroll.Link href="" to="work" rel="noopener noreferrer" smooth={true} duration={350} offset={-100}>Work Experience</Scroll.Link></li>
+                                    <li key={2}><Link to="/blog" rel="noopener noreferrer">Blog</Link></li>
                                 </ul>
                             </div>
                         </div>

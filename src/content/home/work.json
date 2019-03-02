@@ -1,15 +1,15 @@
 [
     {
         "shortTitle": "bsg",
-        "title": "Associate Software Engineer I",
+        "title": "Associate Software Engineer",
         "company": "Blind Squirrel Entertainment, Inc.",
         "dateStart": "April 2017",
         "dateEnd": "Jan 2019",
         "description": "I worked as an associate software engineer, doing all kinds of game development programming.",
         "descList": [
-            "Contributed to the gameplay design and engineering of Star Wars: Jedi Challenges, an augmented reality mobile game based on the Star Wars universe. Developed the game using the Unity3D game engine.",
-            "Contributed to the gameplay engineering and minor graphics engineering of an unannounced multi-platform (PS4/Xbox One/PC) first-person shooter remaster. Worked with the Unreal Engine 3 game engine.",
-            "Contributed to the gameplay design and engineering of Forklift Simulator 2019. Developed the game using the Unity3D game engine."
+            "Star Wars: Jedi Challenges (C#, Unity 3D game, AR/VR, iOS/Android) - Worked closely with game designers to flesh out and implement core gameplay mechanics. Worked with artists to implement various graphical effects through graphics and shader work (e.g. maintaining “hologram” effect shader, particle effects, UI elements). Optimized the game for high performance on mobile devices (e.g. implementing use of GPU instancing).",
+            "Unannounced First-Person Shooter Remaster (C/C++, Unreal Engine 3, PS4/Xbox One/PC) - Worked with artists to improve and resolve various miscellaneous graphical effects and issues through graphics engineering and shader work (e.g. tweaking shadow rendering, fixing depth-of-field effect issues). Implemented miscellaneous features and fixes (e.g. modifying game systems from using a fixed FOV to a variable FOV, fix fullscreen/windowed mode and resolution issues on PC with the DXGI API).",
+            "Forklift Simulator 2019 (C#, Unity 3D game, PC) - Added a graphical motion sickness reduction effect and new gameplay features (e.g. new forklifts to drive)."
         ],
         "descListLinks": [
             "https://www.lenovo.com/us/en/jedichallenges",
