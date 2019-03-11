@@ -13,11 +13,22 @@ import homeStyles from '../style/home.module.scss';
 import '../style/skills.scss';
 
 class Home extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { height: props.height };
+    }
+
+    componentDidMount(){
+        this.setState({ height: window.innerHeight });
+    }
+
     componentDidUpdate() {
         window.scrollTo(0, 0);
     }
 
     render() {
+        let landingCircleImage = this.state.height < 600 ? null : <img src={require("../assets/images/selfportraitcircle.png")} alt=""/>;
+
         return (
             <>
                 <div id="LandingBuffer" className={homeStyles.landingBuffer}>
@@ -25,7 +36,7 @@ class Home extends React.Component {
                     <div id="Landing" className={homeStyles.landing}>
                         <div className={homeStyles.content}>
                             <div className={homeStyles.image}>
-                                <img src={require("../assets/images/selfportraitcircle.png")} alt=""/>
+                                {landingCircleImage}
                             </div>
                             <div className={homeStyles.paragraph}>
                                 Welcome! I am a software engineer who loves all things software development, game development and
@@ -34,8 +45,10 @@ class Home extends React.Component {
                             <div className={homeStyles.links}>
                                 <ul>
                                     <li key={0}><Scroll.Link href="" to="projects" rel="noopener noreferrer" smooth={true} duration={350} offset={-100}>Projects</Scroll.Link></li>
-                                    <li key={1}><Scroll.Link href="" to="work" rel="noopener noreferrer" smooth={true} duration={350} offset={-100}>Work Experience</Scroll.Link></li>
-                                    <li key={2}><Link to="/blog" rel="noopener noreferrer">Blog</Link></li>
+                                    <li key={1} className={homeStyles.liSpacer}/>
+                                    <li key={2}><Scroll.Link href="" to="work" rel="noopener noreferrer" smooth={true} duration={350} offset={-100}>Work Experience</Scroll.Link></li>
+                                    <li key={3} className={homeStyles.liSpacer}/>
+                                    <li key={4}><Link to="/blog" rel="noopener noreferrer">Blog</Link></li>
                                 </ul>
                             </div>
                         </div>

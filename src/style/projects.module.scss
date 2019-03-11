@@ -11,12 +11,19 @@
     // margin-right: auto;
 
     .heading {
-        margin-bottom: 40px;
-        border-bottom: 2px solid darken($color-secondary, 6.25%);
-        padding-top: 3rem;
-        padding-bottom: 2rem;
+        // border-bottom: 2px solid darken($color-secondary, 6.25%);
+        // margin-bottom: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        font-size: 2.25rem;
+        @media only screen and (min-width: $screen-sm) {
+            // margin-bottom: 40px;
+            // border-bottom: 2px solid darken($color-secondary, 6.25%);
+            padding-top: 3rem;
+            // padding-bottom: 1rem;
+            font-size: 3rem;
+        }
 
-        font-size: 3rem;
         font-weight: 700;
         text-align: center;
     }
@@ -29,13 +36,16 @@
     .main {
         position: relative;
 
+        padding: 0 1rem;
+
         width: 100%;
-        @media (min-width: $screen-sm) {
+        @media only screen and (min-width: $screen-sm) {
             width: $screen-sm;
+            padding-bottom: 40px;
         }
 
         margin: 0 auto;
-        padding-bottom: 40px;
+        padding-bottom: 1rem;
 
         z-index: 1;
     }
@@ -45,7 +55,7 @@
         position: relative;
 
         width: 100%;
-        @media (min-width: $screen-sm) {
+        @media only screen and (min-width: $screen-sm) {
             width: $screen-sm;
         }
         max-width: 600px;
@@ -55,10 +65,30 @@
 
         z-index: 1;
 
-        .otherProject {
-            margin-bottom: 40px;
+        .otherHeading {
             border-bottom: 2px solid darken($color-secondary, 6.25%);
-            padding-bottom: 40px;
+
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            font-size: 2.25rem;
+            @media only screen and (min-width: $screen-sm) {
+                border-bottom: 2px solid darken($color-secondary, 6.25%);
+                padding-top: 3rem;
+                font-size: 3rem;
+            }
+
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .otherProject {
+            border-bottom: 2px solid darken($color-secondary, 6.25%);
+            padding-top: 15px;
+            padding-bottom: 15px;
+            @media only screen and (min-width: $screen-sm) {
+                padding-top: 40px;
+                padding-bottom: 40px;
+            }
         }
     }
 
@@ -142,8 +172,10 @@
     padding-top: 40px;
     padding-bottom: 40px;
 
-    border-bottom: 2px solid darken($color-secondary, 16.25%);
-    margin-bottom: 80px;
+    // @media (min-width: $screen-sm) {
+    //     border-bottom: 2px solid darken($color-secondary, 16.25%);
+    //     margin-bottom: 80px;
+    // }
 
     .img {
         position: relative;
@@ -181,19 +213,24 @@
         padding-bottom: 5px;
         font-size: 1.5rem;
         font-weight: bold;
+
+        text-align: center;
+        @media (min-width: $screen-sm) {
+            text-align: inherit;
+        }
     }
 
     .subtitle {
         padding-bottom: 15px;
-        span {
-            float: right;
-            color: darken($color-secondary, 45%);
+        text-align: center;
+        @media (min-width: $screen-sm) {
+            text-align: inherit;
         }
-
-        span::after {
-            content: "";
-            display: table;
-            clear: both;
+        .date {
+            @media (min-width: $screen-sm) {
+                text-align: right;
+            }
+            color: darken($color-secondary, 45%);
         }
     }
 

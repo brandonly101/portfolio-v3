@@ -42,7 +42,12 @@ export default class Work extends React.Component {
             let colDesc = (
                 <Col xs={12} md={8}>
                     <div className={workStyles.title}>{WorkData[i].title}</div>
-                    <div className={workStyles.subtitle}>{WorkData[i].company} <span>{WorkData[i].dateStart} - {WorkData[i].dateEnd}</span></div>
+                    <div className={workStyles.subtitle}>
+                        <Row>
+                            <Col xs={12} sm={6}>{WorkData[i].company}</Col>
+                            <Col xs={12} sm={6} className={workStyles.date}>{WorkData[i].dateStart} - {WorkData[i].dateEnd}</Col>
+                        </Row>
+                    </div>
                     <div className={workStyles.description}>
                         {WorkData[i].description}
                         <ul>
@@ -77,10 +82,8 @@ export default class Work extends React.Component {
 
         return (
             <div id="work" className={workStyles.work}>
-                <Container>
-                    <Row>
-                        <div className={workStyles.heading}>Work Experience</div>
-                    </Row>
+                <div className={workStyles.heading}>Work Experience</div>
+                <Container fluid={true}>
                     {workJobs}
                     {/* <div id="work-skills" className="work-skills-list">
                         <div className="title">Skills and Technologies</div>

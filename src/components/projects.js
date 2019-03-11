@@ -28,16 +28,19 @@ class ProjectContentInfo extends React.Component {
         }
 
         return (
-            <div className={projectsStyles.contentInfo + " " + projectsStyles.otherProject}>
+            <div className={projectsStyles.contentInfo}>
                 <div className={projectsStyles.title}>{projectData.title}</div>
                 <div className={projectsStyles.subtitle}>
-                    {projectData.projectType}
-                    <span>{projectData.dateStart} - {projectData.dateEnd}</span></div>
+                    <Row>
+                        <Col xs={12} sm={6}>{projectData.projectType}</Col>
+                        <Col xs={12} sm={6} className={projectsStyles.date}>{projectData.dateStart} - {projectData.dateEnd}</Col>
+                    </Row>
+                </div>
                 <div className={projectsStyles.description}>
                     {projectData.description} {projectData.footage.type === "liveSite" ?
                         <a href={projectData.footage.src} className={projectsStyles.liveSite} target="_blank" rel="noopener noreferrer">Live site</a> :
                         null} {projectData.footage.type === "paper" ?
-                        <a href={projectData.footage.src} className={projectsStyles.liveSite} target="_blank" rel="noopener noreferrer">Research paper</a> :
+                        <a href={require("../assets/ResearchPaperVideoGameVisualStyles.pdf")} className={projectsStyles.liveSite} target="_blank" rel="noopener noreferrer">Research paper</a> :
                         null} {projectData.src !== "" ?
                         <a href={projectData.src} className={projectsStyles.src} target="_blank" rel="noopener noreferrer">Source code</a> :
                         null}
@@ -165,7 +168,6 @@ export default class Projects extends React.Component {
             projectsOther.push(
                 <ProjectContentInfo
                     key={i}
-                    className={projectsStyles.otherProject}
                     projectData={ProjectsData[i]}
                 />
             );
@@ -174,19 +176,21 @@ export default class Projects extends React.Component {
         return (
             <div className={projectsStyles.projects}>
                 <div className={projectsStyles.main}>
-                    <Container fluid={true}>
-                        <div className={projectsStyles.heading}>Projects</div>
-                        <div className={projectsStyles.headingDesc}>
-                            A collection of projects that I have worked on from college to now.
-                        </div>
-                    </Container>
+                    <div className={projectsStyles.heading}>Projects</div>
+                    <div className={projectsStyles.headingDesc}>
+                        A collection of projects that I have worked on from college to now.
+                    </div>
                 </div>
                 <div id="projects"/>
                 {projectsGrid}
                 <div className={projectsStyles.other}>
+                    <div className={projectsStyles.otherHeading}>Other Projects</div>
                     <Container fluid={true}>
-                        <div className={projectsStyles.heading}>Other Projects</div>
-                        {projectsOther}
+                        <Row>
+                            <Col xs={12} className={projectsStyles.otherProject}>
+                                {projectsOther}
+                            </Col>
+                        </Row>
                     </Container>
                 </div>
             </div>

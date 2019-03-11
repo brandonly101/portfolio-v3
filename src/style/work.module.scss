@@ -11,13 +11,21 @@
 
     .heading {
         width: 100%;
+
         border-bottom: 2px solid darken($color-secondary, 6.25%);
 
-        padding-top: 3rem;
-        padding-bottom: 2rem;
-        margin-bottom: 40px;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        font-size: 2.25rem;
+        @media only screen and (min-width: $screen-sm) {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            padding-top: 3rem;
+            padding-bottom: 2rem;
 
-        font-size: 3rem;
+            font-size: 3rem;
+        }
+
         font-weight: 700;
         text-align: center;
     }
@@ -25,12 +33,18 @@
     .job {
         border-bottom: 2px solid darken($color-secondary, 6.25%);
 
-        padding-bottom: 40px;
-        margin-bottom: 40px;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        @media only screen and (min-width: $screen-sm) {
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+        }
     }
 
     .img {
-        padding: 10%;
+        @media only screen and (min-width: $screen-sm) {
+            padding: 10%;
+        }
         height: 100%;
         display: flex;
         align-items: center;
@@ -45,22 +59,27 @@
     }
 
     .title {
+        padding-top: 15px;
         padding-bottom: 5px;
         font-size: 1.25rem;
         font-weight: bold;
+        text-align: center;
+        @media (min-width: $screen-sm) {
+            text-align: inherit;
+        }
     }
 
     .subtitle {
         padding-bottom: 15px;
-        span {
-            float: right;
-            color: darken(#FFF, 30%);
+        text-align: center;
+        @media (min-width: $screen-sm) {
+            text-align: inherit;
         }
-
-        span::after {
-            content: "";
-            display: table;
-            clear: both;
+        .date {
+            @media (min-width: $screen-sm) {
+                text-align: right;
+            }
+            color: darken(#FFF, 30%);
         }
     }
 

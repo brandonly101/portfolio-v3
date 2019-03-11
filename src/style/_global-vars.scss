@@ -4,13 +4,14 @@
 $col-count: 12;
 
 // Screen Sizes.
-$screen-xs: 480px;
-$screen-sm: 720px;
+$screen-xs: 512px;
+$screen-sm: 768px;
 $screen-md: 1024px;
 $screen-lg: 1280px;
 
 // Header settings
 $header-height: 100px;
+$header-height-xs: 80px;
 
 // Color scheme 1
 $color-primary: rgb(18, 36, 56);
