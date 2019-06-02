@@ -4,36 +4,43 @@
 import React from 'react';
 import * as THREE from 'three';
 
-const ringInstVS = '\
-precision highp float;\n\
-\n\
-// uniform mat4 modelViewMatrix;\n\
-// uniform mat4 projectionMatrix;\n\
-\n\
-// attribute vec3 position;\n\
-attribute vec4 ringInstPos;\n\
-\
-varying vec3 worldPos;\
-\
-\n\
-void main() {\n\
-    worldPos = position;\
-	gl_Position = projectionMatrix * modelViewMatrix * vec4(ringInstPos.xyz + ringInstPos.a * position, 1.0);\n\
-}\n\
-';
+const ringInstVS = `
+precision highp float;
 
-const ringInstPS = '\
-precision highp float;\
-\
-uniform vec3 color;\
-\
-varying vec3 worldPos;\
-\
-void main() {\
-    float lambertian = dot(normalize(worldPos), normalize(cameraPosition));\
-    gl_FragColor = vec4(color * lambertian * 0.2 + color * 0.8, 1);\
-}\
-';
+// uniform mat4 modelViewMatrix;
+// uniform mat4 projectionMatrix;
+
+// attribute vec3 position;
+attribute vec4 ringInstPos;
+
+varying vec3 worldPos;
+
+void main()
+{
+    worldPos = position;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(ringInstPos.xyz + ringInstPos.a * position, 1.0);
+}
+`;
+
+const ringInstPS = `
+precision highp float;
+
+uniform vec3 color;
+uniform float fogNear;
+uniform float fogFar;
+uniform vec3 fogColor;
+
+varying vec3 worldPos;
+
+void main()
+{
+    float lambertian = dot(normalize(worldPos), normalize(cameraPosition));
+    gl_FragColor = vec4(color * lambertian * 0.15 + color * 0.85, 1);
+    float depth = gl_FragCoord.z / gl_FragCoord.w;
+    float fogFactor = smoothstep(fogNear, fogFar, depth);
+    gl_FragColor.rgb = mix(gl_FragColor.rgb, fogColor, fogFactor);
+}
+`;
 
 export default class LandingThree extends React.Component {
     constructor(props) {
@@ -78,7 +85,7 @@ export default class LandingThree extends React.Component {
             require('../assets/landingThree/images/skybox/space/nz.jpg')
         ]);
         scene.background = cubeTexture;
-        scene.fog = new THREE.Fog(new THREE.Color('#000304'), 100, 1000)
+        scene.fog = new THREE.Fog(new THREE.Color('#000304'), 100, 1000);
 
         // Create Lights
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
@@ -143,13 +150,35 @@ export default class LandingThree extends React.Component {
         const ringNumber = 8192;
         const ringCount = 8;
 
-        let ringPositions = []; // should be ringNumber * 3
-        let ringPos1 = [];
-        let ringPos2 = [];
+        const mat = new THREE.ShaderMaterial({
+            uniforms: {
+                fogColor: { type: "c", value: scene.fog.color },
+                fogNear: { type: "f", value: scene.fog.near },
+                fogFar: { type: "f", value: scene.fog.far },
+                color: { type: "c", value: new THREE.Color('#d1e8ff') }
+            },
+            vertexShader: ringInstVS,
+            fragmentShader: ringInstPS,
+            transparent: false
+        });
+
+        const mat2 = new THREE.ShaderMaterial({
+            uniforms: {
+                fogColor: { type: "c", value: scene.fog.color },
+                fogNear: { type: "f", value: scene.fog.near },
+                fogFar: { type: "f", value: scene.fog.far },
+                color: { type: "c", value: new THREE.Color('#ffef8c') }
+            },
+            vertexShader: ringInstVS,
+            fragmentShader: ringInstPS,
+            transparent: false
+        });
+
+        const rings = [];
         for (let i = 0; i < ringCount; i++) {
             const ringRadius = 100 * (i + 1);
 
-            let ringInstPos = [];
+            const ringInstPos = [];
             for (let j = 0; j < ringNumber; j++) {
                 const theta = Math.random() * 2 * Math.PI;
                 const x = Math.cos(theta);
@@ -171,65 +200,25 @@ export default class LandingThree extends React.Component {
                 //     zOffset,
                 //     (1 - Math.pow(rOffset / ringWidth, 2)) * 1.5
                 // ));
-                if (i % 2 == 0) {
-                    ringPos1.push(x * r + xOffset);
-                    ringPos1.push(y * r + yOffset);
-                    ringPos1.push(zOffset);
-                    ringPos1.push((1 - Math.pow(rOffset / ringWidth, 2)) * 1.5);
-                } else {
-                    ringPos2.push(x * r + xOffset);
-                    ringPos2.push(y * r + yOffset);
-                    ringPos2.push(zOffset);
-                    ringPos2.push((1 - Math.pow(rOffset / ringWidth, 2)) * 1.5);
-                }
+                ringInstPos.push(x * r + xOffset);
+                ringInstPos.push(y * r + yOffset);
+                ringInstPos.push(zOffset);
+                ringInstPos.push((1 - Math.pow(rOffset / ringWidth, 2)) * 1.5);
+            }
+
+            const geomSphere = new THREE.SphereBufferGeometry(1, 5, 5);
+            const geomInst = new THREE.InstancedBufferGeometry().copy(geomSphere);
+            geomInst.addAttribute('ringInstPos', new THREE.InstancedBufferAttribute(new Float32Array(ringInstPos), 4));
+            const ringInst = new THREE.Mesh(geomInst, i % 2 === 0 ? mat : mat2);
+            scene.add(ringInst);
+            rings.push(ringInst);
+
+            if (i % 2 !== 0) {
+                ringInst.rotateOnAxis(new THREE.Vector3(1, 0, 0), Math.PI / 2);
             }
         }
 
-        // const mat = new THREE.MeshLambertMaterial({
-        //     color: '#d1e8ff',
-        //     // shininess: 0,
-        //     // emissive: '#ffef8c',
-        //     // emissiveIntensity: 1.5
-        // });
-        // const mat2 = new THREE.MeshLambertMaterial({
-        //     color: '#ffef8c',
-        //     // shininess: 0,
-        //     // emissive: '#ffef8c',
-        //     // emissiveIntensity: 1.5
-        // });
-
-        const mat = new THREE.ShaderMaterial({
-            uniforms: {
-                "color": { value: new THREE.Color('#d1e8ff').toArray() }
-            },
-            vertexShader: ringInstVS,
-            fragmentShader: ringInstPS,
-            transparent: false
-        });
-        const mat2 = new THREE.ShaderMaterial({
-            uniforms: {
-                "color": { value: new THREE.Color('#ffef8c').toArray() }
-            },
-            vertexShader: ringInstVS,
-            fragmentShader: ringInstPS,
-            transparent: false
-        });
-
-        const geomSphere = new THREE.SphereBufferGeometry(1, 5, 5);
-
-        const geomInst = new THREE.InstancedBufferGeometry().copy(geomSphere);
-        geomInst.addAttribute('ringInstPos', new THREE.InstancedBufferAttribute(new Float32Array(ringPos1), 4));
-        const ringInst = new THREE.Mesh(geomInst, mat);
-        scene.add(ringInst);
-        
-        const geomInst2 = new THREE.InstancedBufferGeometry().copy(geomSphere);
-        geomInst2.addAttribute('ringInstPos', new THREE.InstancedBufferAttribute(new Float32Array(ringPos2), 4));
-        const ringInst2 = new THREE.Mesh(geomInst2, mat2);
-        scene.add(ringInst2);
-        
-        ringInst2.rotateOnAxis(new THREE.Vector3(1, 0, 0), Math.PI / 2);
         // const geom = new THREE.SphereGeometry();
-        const rings = [ ringInst, ringInst2 ];
         // for (let i = 0; i < ringCount; i++) {
         //     const ring = new THREE.Group();
 
@@ -304,11 +293,11 @@ export default class LandingThree extends React.Component {
         // this.cubeRight.rotation.y += 0.01;
 
         const ringCount = this.rings.length;
+        const rotAxis = new THREE.Vector3(0, 0, 1);
         for (let i = 0; i < ringCount; i++) {
-            this.rings[i].rotateOnAxis(
-                new THREE.Vector3(0, 0, 1),
-                ((i % 2) === 0 ? -1 : 1) * 0.001 * (ringCount - i) / ringCount
-            );
+            const reverseSpin = (i % 4 === 0 || i % 4 === 1 ? 1 : -1);
+            const rotRads = ((i % 2) === 0 ? -1 : 1) * 0.001 * 1 / (i + 1) * reverseSpin;
+            this.rings[i].rotateOnAxis(rotAxis, rotRads);
         }
 
         this.renderer.render(this.scene, this.camera);
