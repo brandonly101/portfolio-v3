@@ -208,7 +208,7 @@
         "img": "BladeQuest.jpg",
         "footage": {
             "type": "paper",
-            "src": "/assets/paper.pdf"
+            "src": "/assets/ResearchPaperVideoGameVisualStyles.pdf"
         },
         "src": "https://github.com/brandonly101/ue4-shaders-blade-quest"
     },
