@@ -177,13 +177,6 @@ export default class LandingThree extends React.Component {
         for (let i = 0; i < ringCount; i++) {
             const ringRadius = 100 * (i + 1) + 15;
 
-            const geomSphere = new THREE.SphereBufferGeometry(1, 5, 4);
-            const geomInst = new THREE.InstancedBufferGeometry();
-            geomInst.copy(geomSphere);
-            const ringInst = new THREE.Mesh(geomInst, i % 2 === 0 ? mat : mat2);
-            scene.add(ringInst);
-            rings.push(ringInst);
-
             const ringInstPos = [];
             // Create this effect where farther rings have less rocks
             const effectiveRingNumber = ringNumber * Math.cos(i * 0.675 / ringCount * Math.PI / 2);
@@ -206,8 +199,30 @@ export default class LandingThree extends React.Component {
                 ringInstPos.push(x * r + xOffset);
                 ringInstPos.push(y * r + yOffset);
                 ringInstPos.push(zOffset);
-                ringInstPos.push((1 - Math.pow(Math.abs(rOffset) / ringWidth, 2.25) * 0.65) * 2);
+                ringInstPos.push((1 - Math.pow(Math.abs(rOffset) / ringWidth, 2.25) * 0.65) * 1.75);
             }
+
+            // Mini-LOD-ing - if rings are further away, we specify sphere geometry for the rocks
+            // that uses less indices
+            let subDivisions = 5;
+            switch (i) {
+                case 2 <= i && i < 4:
+                    subDivisions = 4;
+                    break;
+                case 4 <= i && i < 8:
+                    subDivisions = 3;
+                    break;
+                default:
+                    subDivisions = 5;
+                    break;
+            }
+            const geomSphere = new THREE.SphereBufferGeometry(1, subDivisions, subDivisions - 1);
+
+            const geomInst = new THREE.InstancedBufferGeometry();
+            geomInst.copy(geomSphere);
+            const ringInst = new THREE.Mesh(geomInst, i % 2 === 0 ? mat : mat2);
+            scene.add(ringInst);
+            rings.push(ringInst);
 
             geomInst.addAttribute('ringInstPos', new THREE.InstancedBufferAttribute(new Float32Array(ringInstPos), 4));
 
