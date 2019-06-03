@@ -7,10 +7,6 @@ import * as THREE from 'three';
 const ringInstVS = `
 precision highp float;
 
-// uniform mat4 modelViewMatrix;
-// uniform mat4 projectionMatrix;
-
-// attribute vec3 position;
 attribute vec4 ringInstPos;
 
 varying vec3 worldPos;
@@ -25,19 +21,21 @@ void main()
 const ringInstPS = `
 precision highp float;
 
-uniform vec3 color;
 uniform float fogNear;
 uniform float fogFar;
 uniform vec3 fogColor;
+uniform vec3 color;
 
 varying vec3 worldPos;
 
 void main()
 {
     float lambertian = dot(normalize(worldPos), normalize(cameraPosition));
-    gl_FragColor = vec4(color * lambertian * 0.15 + color * 0.85, 1);
+    gl_FragColor = vec4(color * lambertian * 0.175 + color * 0.825, 1.0);
+
     float depth = gl_FragCoord.z / gl_FragCoord.w;
     float fogFactor = smoothstep(fogNear, fogFar, depth);
+
     gl_FragColor.rgb = mix(gl_FragColor.rgb, fogColor, fogFactor);
 }
 `;
@@ -45,13 +43,14 @@ void main()
 export default class LandingThree extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { x: 0, y: 0 };
+        this.state = { x: 0, y: 0, isScrolled: false };
 
         this.resize = this.resize.bind(this);
 
         this.start = this.start.bind(this);
         this.stop = this.stop.bind(this);
         this.update = this.update.bind(this);
+        this.scrollHandler = this.scrollHandler.bind(this);
     }
 
     componentDidMount() {
@@ -147,7 +146,7 @@ export default class LandingThree extends React.Component {
         // scene.add(cubeRight);
 
         const ringWidth = 24;
-        const ringNumber = 8192;
+        const ringNumber = 8192 * 0.875;
         const ringCount = 8;
 
         const mat = new THREE.ShaderMaterial({
@@ -176,70 +175,46 @@ export default class LandingThree extends React.Component {
 
         const rings = [];
         for (let i = 0; i < ringCount; i++) {
-            const ringRadius = 100 * (i + 1);
+            const ringRadius = 100 * (i + 1) + 15;
+
+            const geomSphere = new THREE.SphereBufferGeometry(1, 5, 4);
+            const geomInst = new THREE.InstancedBufferGeometry();
+            geomInst.copy(geomSphere);
+            const ringInst = new THREE.Mesh(geomInst, i % 2 === 0 ? mat : mat2);
+            scene.add(ringInst);
+            rings.push(ringInst);
 
             const ringInstPos = [];
-            for (let j = 0; j < ringNumber; j++) {
+            // Create this effect where farther rings have less rocks
+            const effectiveRingNumber = ringNumber * Math.cos(i * 0.675 / ringCount * Math.PI / 2);
+            // const effectiveRingNumber = ringNumber;
+            for (let j = 0; j < effectiveRingNumber; j++) {
                 const theta = Math.random() * 2 * Math.PI;
                 const x = Math.cos(theta);
                 const y = Math.sin(theta);
 
-                const rOffset = (Math.random() > 0.5 ? 1 : -1) * ringWidth * Math.pow(Math.random(), 0.525);
+                const rOffset = (Math.random() > 0.5 ? 1 : -1) * ringWidth * Math.pow(Math.random(), 0.425);
                 const r = ringRadius + rOffset;
 
                 const phiOffset = Math.random() * 2 * Math.PI;
-                const thetaOffset = Math.random() * 2 * Math.PI;
+                const thetaOffset = Math.random() * Math.PI;
 
                 const xOffset = rOffset * Math.sin(thetaOffset) * Math.cos(phiOffset);
                 const yOffset = rOffset * Math.sin(thetaOffset) * Math.sin(phiOffset);
                 const zOffset = rOffset * Math.cos(thetaOffset);
 
-                // ringPositions.push(new THREE.Vector4(
-                //     x * r + xOffset,
-                //     y * r + yOffset,
-                //     zOffset,
-                //     (1 - Math.pow(rOffset / ringWidth, 2)) * 1.5
-                // ));
                 ringInstPos.push(x * r + xOffset);
                 ringInstPos.push(y * r + yOffset);
                 ringInstPos.push(zOffset);
-                ringInstPos.push((1 - Math.pow(rOffset / ringWidth, 2)) * 1.5);
+                ringInstPos.push((1 - Math.pow(Math.abs(rOffset) / ringWidth, 2.25) * 0.65) * 2);
             }
 
-            const geomSphere = new THREE.SphereBufferGeometry(1, 5, 5);
-            const geomInst = new THREE.InstancedBufferGeometry().copy(geomSphere);
             geomInst.addAttribute('ringInstPos', new THREE.InstancedBufferAttribute(new Float32Array(ringInstPos), 4));
-            const ringInst = new THREE.Mesh(geomInst, i % 2 === 0 ? mat : mat2);
-            scene.add(ringInst);
-            rings.push(ringInst);
 
             if (i % 2 !== 0) {
                 ringInst.rotateOnAxis(new THREE.Vector3(1, 0, 0), Math.PI / 2);
             }
         }
-
-        // const geom = new THREE.SphereGeometry();
-        // for (let i = 0; i < ringCount; i++) {
-        //     const ring = new THREE.Group();
-
-        //     for (let j = i * ringNumber; j < (i + 1) * ringNumber; j++) {
-        //         const p = ringPositions[j];
-
-        //         const tempSphere = new THREE.Mesh(geom, (i % 2) === 0 ? mat : mat2);
-        //         tempSphere.scale.set(p.w, p.w, p.w);
-        //         tempSphere.rotation.set(p.x, p.y, p.z);
-        //         tempSphere.position.set(p.x, p.y, p.z);
-
-        //         ring.add(tempSphere);
-        //     }
-
-        //     if ((i % 2) !== 0) {
-        //         ring.rotateOnAxis(new THREE.Vector3(1, 0, 0), Math.PI / 2);
-        //     }
-
-        //     scene.add(ring);
-        //     rings.push(ring);
-        // }
 
         // Add everything to this component
         this.sphereCenter = sphereCenter;
@@ -257,6 +232,7 @@ export default class LandingThree extends React.Component {
         // Add event listeners
         window.addEventListener("resize", this.resize.bind(this));
         window.addEventListener("mousemove", this.onMouseMove.bind(this));
+        window.addEventListener("scroll", this.scrollHandler);
     }
 
     componentWillUnmount() {
@@ -265,6 +241,7 @@ export default class LandingThree extends React.Component {
 
         window.removeEventListener("resize", this.resize);
         window.removeEventListener("mousemove", this.onMouseMove);
+        window.removeEventListener("scroll", this.scrollHandler);
     }
 
     start() {
@@ -300,7 +277,9 @@ export default class LandingThree extends React.Component {
             this.rings[i].rotateOnAxis(rotAxis, rotRads);
         }
 
-        this.renderer.render(this.scene, this.camera);
+        if (!this.state.isScrolled) {
+            this.renderer.render(this.scene, this.camera);
+        }
         this.frameId = window.requestAnimationFrame(this.update);
     }
 
@@ -331,6 +310,15 @@ export default class LandingThree extends React.Component {
         this.dirLight.position.set(x, y, z);
         // this.dirLight.position.set(-x, -y, -z);
         this.camera.lookAt(0, 0 ,0);
+    }
+
+    scrollHandler(e) {
+        const scrollTop = Math.max(
+            window.pageYOffset,
+            document.documentElement.scrollTop,
+            document.body.scrollTop
+        );
+        this.setState({ isScrolled: scrollTop > window.innerHeight });
     }
 
     // React DOM render function. Not to be confused with Three.js's render
