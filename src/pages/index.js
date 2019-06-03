@@ -39,7 +39,7 @@ class Home extends React.Component {
                                 {landingCircleImage}
                             </div>
                             <div className={homeStyles.paragraph}>
-                                Welcome! I am a software engineer who loves all things software development, game development and
+                                Welcome! I am a software engineer who loves all things software, games and
                                 computer graphics!
                             </div>
                             <div className={homeStyles.links}>

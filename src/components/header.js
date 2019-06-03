@@ -47,7 +47,7 @@ export default class Header extends React.Component {
                                 <a href="/">
                                     <div className={headerStyles.title}>
                                         <div className={headerStyles.main}>Brandon Ly</div>
-                                        <div className={headerStyles.sub}>Game Developer and Software Engineer</div>
+                                        <div className={headerStyles.sub}>Software and Graphics Engineer</div>
                                     </div>
                                 </a>
                             </div>

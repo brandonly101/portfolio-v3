@@ -15,17 +15,18 @@ export default class About extends React.Component {
                 <div className={aboutStyles.aboutDescription}>
                     <img src={require("../assets/images/about/me.png")} alt=""/>
                     <div className={aboutStyles.paragraph}>
-                        Hello! I'm Brandon Ly! I am a game developer and software engineer.
+                        Hello! I'm Brandon Ly! I am a software and graphics engineer.
                         I really enjoy the following:
                         <ul>
-                            <li>3D Computer Graphics</li>
-                            <li>Video Games and Video Game Development</li>
+                            <li>3D Computer Graphics and Rendering</li>
+                            <li>Video Games and Game Development</li>
                             <li>VR and AR Gaming and Experiences</li>
-                            <li>Data Visualizations</li>
+                            <li>Data Visualizations and 3D Simulations</li>
+                            <li>Web Development</li>
                         </ul>
                         I was born and raised near Los Angeles, and still find joy
-                        in exploring the large city through new events. In my spare time I
-                        play video games and listen to music.<br/>
+                        in exploring the nooks and crannies of this large city. In my spare time I
+                        play video games and listen to (read: heavily analyze) music.<br/>
                         <br/>
                         If you want to get in touch, feel free to reach out to me! Check out the links
                         at the bottom of the site.

@@ -5,12 +5,12 @@
         "company": "Blind Squirrel Entertainment, Inc.",
         "dateStart": "April 2017",
         "dateEnd": "Jan 2019",
-        "description": "I worked as an associate software engineer, doing all kinds of game development programming.",
+        "description": "I worked as an associate software engineer, doing all kinds of gameplay, engine, and graphics programming.",
         "descList": [
-            "Video Game - Star Wars: Jedi Challenges (C#, Unity 3D, AR/VR, iOS/Android) - Worked closely with game designers to flesh out and implement core gameplay mechanics. Worked with artists to implement various graphical effects through graphics and shader work (e.g. maintaining “hologram” effect shader, particle effects, UI elements). Optimized the game for high performance on mobile devices (e.g. implementing use of GPU instancing).",
-            "Video Game - Unannounced AAA First-Person Shooter Remaster (C/C++, Unreal Engine 3, PS4/Xbox One/PC, DXGI, D3D11, HLSL) - Worked with artists to improve and resolve various miscellaneous graphical effects and issues through graphics engineering and shader work (e.g. tweaking shadow rendering, fixing depth-of-field effect issues). Implemented miscellaneous features and fixes (e.g. changing game systems from using a fixed FOV to a variable FOV, fixing fullscreen/windowed mode/resolution issues on PC via DXGI API, fixing VOIP issues).",
+            "Video Game - \"Star Wars: Jedi Challenges\" (C#, Unity 3D, AR/VR, iOS/Android) - Worked closely with game designers to flesh out and implement core gameplay mechanics. Worked with artists to implement various graphical effects through graphics and shader work (e.g. maintaining “hologram” effect shader, particle effects, UI elements). Optimized the game for high performance on mobile devices (e.g. implementing use of GPU instancing).",
+            "Video Game - \"Borderlands: Game of the Year Edition\" (Remaster) (C/C++, Unreal Engine 3, PS4/Xbox One/PC, DXGI, D3D11, HLSL) - Worked with artists to improve and resolve various miscellaneous graphical effects and issues through graphics engineering and shader work (e.g. tweaking shadow rendering, fixing depth-of-field effect issues). Implemented miscellaneous features and fixes (e.g. changing game systems from using a fixed FOV to a variable FOV, fixing fullscreen/windowed mode/resolution issues on PC via DXGI API, fixing VOIP issues).",
             "Video Game - Unreleased AAA First-Person Shooter Remaster (C/C++, Proprietary Engine, Ogg Vorbis) - Performed research and documentation for viable audio formats and VOIP APIs (i.e. implemented and tested them in the original codebase) that were of potential use for the remastered game. Profiled and benchmarked the game on a low-end PC to gauge playability on min. spec. PC hardware.",
-            "Video Game - Forklift Simulator 2019 (C#, Unity 3D, PC) - Added a graphical motion sickness reduction effect and new gameplay features (e.g. new forklifts to drive)."
+            "Video Game - \"Forklift Simulator 2019\" (C#, Unity 3D, PC) - Added a graphical motion sickness reduction effect and new gameplay features (e.g. new forklifts to drive)."
         ],
         "descListLinks": [
             "https://www.lenovo.com/us/en/jedichallenges",
