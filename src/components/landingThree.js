@@ -4,16 +4,53 @@
 import React from 'react';
 import * as THREE from 'three';
 
+const ringInstVS = `
+precision highp float;
+
+attribute vec4 ringInstPos;
+
+varying vec3 worldPos;
+
+void main()
+{
+    worldPos = position;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(ringInstPos.xyz + ringInstPos.a * position, 1.0);
+}
+`;
+
+const ringInstPS = `
+precision highp float;
+
+uniform float fogNear;
+uniform float fogFar;
+uniform vec3 fogColor;
+uniform vec3 color;
+
+varying vec3 worldPos;
+
+void main()
+{
+    float lambertian = dot(normalize(worldPos), normalize(cameraPosition));
+    gl_FragColor = vec4(color * lambertian * 0.175 + color * 0.825, 1.0);
+
+    float depth = gl_FragCoord.z / gl_FragCoord.w;
+    float fogFactor = smoothstep(fogNear, fogFar, depth);
+
+    gl_FragColor.rgb = mix(gl_FragColor.rgb, fogColor, fogFactor);
+}
+`;
+
 export default class LandingThree extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { x: 0, y: 0 };
+        this.state = { x: 0, y: 0, isScrolled: false };
 
         this.resize = this.resize.bind(this);
 
         this.start = this.start.bind(this);
         this.stop = this.stop.bind(this);
         this.update = this.update.bind(this);
+        this.scrollHandler = this.scrollHandler.bind(this);
     }
 
     componentDidMount() {
@@ -47,7 +84,7 @@ export default class LandingThree extends React.Component {
             require('../assets/landingThree/images/skybox/space/nz.jpg')
         ]);
         scene.background = cubeTexture;
-        scene.fog = new THREE.Fog(new THREE.Color('#000304'), 100, 1000)
+        scene.fog = new THREE.Fog(new THREE.Color('#000304'), 100, 1000);
 
         // Create Lights
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
@@ -108,72 +145,75 @@ export default class LandingThree extends React.Component {
         // scene.add(sphereLeft);
         // scene.add(cubeRight);
 
-        const ringWidth = 15;
-        const ringNumber = 1250;
+        const ringWidth = 24;
+        const ringNumber = 8192 * 0.875;
         const ringCount = 8;
 
-        let ringPositions = []; // should be ringNumber * 3
-        for (let i = 0; i < ringCount; i++) {
-            const ringRadius = 100 * (i + 1);
+        const mat = new THREE.ShaderMaterial({
+            uniforms: {
+                fogColor: { type: "c", value: scene.fog.color },
+                fogNear: { type: "f", value: scene.fog.near },
+                fogFar: { type: "f", value: scene.fog.far },
+                color: { type: "c", value: new THREE.Color('#d1e8ff') }
+            },
+            vertexShader: ringInstVS,
+            fragmentShader: ringInstPS,
+            transparent: false
+        });
 
-            for (let j = 0; j < ringNumber; j++) {
+        const mat2 = new THREE.ShaderMaterial({
+            uniforms: {
+                fogColor: { type: "c", value: scene.fog.color },
+                fogNear: { type: "f", value: scene.fog.near },
+                fogFar: { type: "f", value: scene.fog.far },
+                color: { type: "c", value: new THREE.Color('#ffef8c') }
+            },
+            vertexShader: ringInstVS,
+            fragmentShader: ringInstPS,
+            transparent: false
+        });
+
+        const rings = [];
+        for (let i = 0; i < ringCount; i++) {
+            const ringRadius = 100 * (i + 1) + 15;
+
+            const geomSphere = new THREE.SphereBufferGeometry(1, 5, 4);
+            const geomInst = new THREE.InstancedBufferGeometry();
+            geomInst.copy(geomSphere);
+            const ringInst = new THREE.Mesh(geomInst, i % 2 === 0 ? mat : mat2);
+            scene.add(ringInst);
+            rings.push(ringInst);
+
+            const ringInstPos = [];
+            // Create this effect where farther rings have less rocks
+            const effectiveRingNumber = ringNumber * Math.cos(i * 0.675 / ringCount * Math.PI / 2);
+            // const effectiveRingNumber = ringNumber;
+            for (let j = 0; j < effectiveRingNumber; j++) {
                 const theta = Math.random() * 2 * Math.PI;
                 const x = Math.cos(theta);
                 const y = Math.sin(theta);
 
-                const rOffset = (Math.random() > 0.5 ? 1 : -1) * ringWidth * Math.pow(Math.random(), 0.85);
+                const rOffset = (Math.random() > 0.5 ? 1 : -1) * ringWidth * Math.pow(Math.random(), 0.425);
                 const r = ringRadius + rOffset;
 
                 const phiOffset = Math.random() * 2 * Math.PI;
-                const thetaOffset = Math.random() * 2 * Math.PI;
+                const thetaOffset = Math.random() * Math.PI;
 
                 const xOffset = rOffset * Math.sin(thetaOffset) * Math.cos(phiOffset);
                 const yOffset = rOffset * Math.sin(thetaOffset) * Math.sin(phiOffset);
                 const zOffset = rOffset * Math.cos(thetaOffset);
 
-                ringPositions.push(new THREE.Vector4(
-                    x * r + xOffset,
-                    y * r + yOffset,
-                    zOffset,
-                    (1 - Math.pow(rOffset / ringWidth, 2)) * 1.5
-                ));
-            }
-        }
-
-        const mat = new THREE.MeshPhongMaterial({
-            color: '#d1e8ff',
-            shininess: 0,
-            // emissive: '#ffef8c',
-            // emissiveIntensity: 1.5
-        });
-        const mat2 = new THREE.MeshPhongMaterial({
-            color: '#ffef8c',
-            shininess: 0,
-            // emissive: '#ffef8c',
-            // emissiveIntensity: 1.5
-        });
-        const geom = new THREE.SphereGeometry();
-        const rings = [];
-        for (let i = 0; i < ringCount; i++) {
-            const ring = new THREE.Group();
-
-            for (let j = i * ringNumber; j < (i + 1) * ringNumber; j++) {
-                const p = ringPositions[j];
-
-                const tempSphere = new THREE.Mesh(geom, (i % 2) === 0 ? mat : mat2);
-                tempSphere.scale.set(p.w, p.w, p.w);
-                tempSphere.rotation.set(p.x, p.y, p.z);
-                tempSphere.position.set(p.x, p.y, p.z);
-
-                ring.add(tempSphere);
+                ringInstPos.push(x * r + xOffset);
+                ringInstPos.push(y * r + yOffset);
+                ringInstPos.push(zOffset);
+                ringInstPos.push((1 - Math.pow(Math.abs(rOffset) / ringWidth, 2.25) * 0.65) * 2);
             }
 
-            if ((i % 2) !== 0) {
-                ring.rotateOnAxis(new THREE.Vector3(1, 0, 0), Math.PI / 2);
-            }
+            geomInst.addAttribute('ringInstPos', new THREE.InstancedBufferAttribute(new Float32Array(ringInstPos), 4));
 
-            scene.add(ring);
-            rings.push(ring);
+            if (i % 2 !== 0) {
+                ringInst.rotateOnAxis(new THREE.Vector3(1, 0, 0), Math.PI / 2);
+            }
         }
 
         // Add everything to this component
@@ -192,6 +232,7 @@ export default class LandingThree extends React.Component {
         // Add event listeners
         window.addEventListener("resize", this.resize.bind(this));
         window.addEventListener("mousemove", this.onMouseMove.bind(this));
+        window.addEventListener("scroll", this.scrollHandler);
     }
 
     componentWillUnmount() {
@@ -200,6 +241,7 @@ export default class LandingThree extends React.Component {
 
         window.removeEventListener("resize", this.resize);
         window.removeEventListener("mousemove", this.onMouseMove);
+        window.removeEventListener("scroll", this.scrollHandler);
     }
 
     start() {
@@ -227,15 +269,17 @@ export default class LandingThree extends React.Component {
         // this.cubeRight.rotation.x += 0.01;
         // this.cubeRight.rotation.y += 0.01;
 
-        const ringCount = this.ringCount;
+        const ringCount = this.rings.length;
+        const rotAxis = new THREE.Vector3(0, 0, 1);
         for (let i = 0; i < ringCount; i++) {
-            this.rings[i].rotateOnAxis(
-                new THREE.Vector3(0, 0, 1),
-                ((i % 2) === 0 ? -1 : 1) * 0.001 * (ringCount - i) / ringCount
-            );
+            const reverseSpin = (i % 4 === 0 || i % 4 === 1 ? 1 : -1);
+            const rotRads = ((i % 2) === 0 ? -1 : 1) * 0.001 * 1 / (i + 1) * reverseSpin;
+            this.rings[i].rotateOnAxis(rotAxis, rotRads);
         }
 
-        this.renderer.render(this.scene, this.camera);
+        if (!this.state.isScrolled) {
+            this.renderer.render(this.scene, this.camera);
+        }
         this.frameId = window.requestAnimationFrame(this.update);
     }
 
@@ -266,6 +310,15 @@ export default class LandingThree extends React.Component {
         this.dirLight.position.set(x, y, z);
         // this.dirLight.position.set(-x, -y, -z);
         this.camera.lookAt(0, 0 ,0);
+    }
+
+    scrollHandler(e) {
+        const scrollTop = Math.max(
+            window.pageYOffset,
+            document.documentElement.scrollTop,
+            document.body.scrollTop
+        );
+        this.setState({ isScrolled: scrollTop > window.innerHeight });
     }
 
     // React DOM render function. Not to be confused with Three.js's render
